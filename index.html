@@ -1797,7 +1797,7 @@
                 <p id="builderCopy">Elige lo básico y abre WhatsApp con un mensaje más claro.</p>
                 <div class="quick-builder-grid">
                   <div class="field">
-                    <label for="quickNeed">Necesito</label>
+                    <label for="quickNeed" id="quickNeedLabel">Necesito</label>
                     <select id="quickNeed">
                       <option>Auto</option>
                       <option>Salud</option>
@@ -1809,7 +1809,7 @@
                     </select>
                   </div>
                   <div class="field">
-                    <label for="quickWhen">Tiempo</label>
+                    <label for="quickWhen" id="quickWhenLabel">Tiempo</label>
                     <select id="quickWhen">
                       <option>Hoy</option>
                       <option>Esta semana</option>
@@ -1817,7 +1817,7 @@
                     </select>
                   </div>
                   <div class="field">
-                    <label for="quickHow">Prefiero</label>
+                    <label for="quickHow" id="quickHowLabel">Prefiero</label>
                     <select id="quickHow">
                       <option>WhatsApp</option>
                       <option>Llamada</option>
@@ -1829,16 +1829,16 @@
               </div>
               <div class="mini-faq">
                 <details>
-                  <summary>¿Puedo agendar una cita presencial?</summary>
-                  <p>Sí. Podemos coordinar una visita en Porsche Center Santo Domingo con cita previa.</p>
+                  <summary id="miniFaqOneQ">¿Puedo agendar una cita presencial?</summary>
+                  <p id="miniFaqOneA">Sí. Podemos coordinar una visita en Porsche Center Santo Domingo con cita previa.</p>
                 </details>
                 <details>
-                  <summary>¿Qué pasa si no sé qué seguro necesito?</summary>
-                  <p>Me escribes y revisamos tu caso. La idea es simplificar, no complicarte.</p>
+                  <summary id="miniFaqTwoQ">¿Qué pasa si no sé qué seguro necesito?</summary>
+                  <p id="miniFaqTwoA">Me escribes y revisamos tu caso. La idea es simplificar, no complicarte.</p>
                 </details>
                 <details>
-                  <summary>¿Se puede financiar la póliza?</summary>
-                  <p>Por ahora no gestiono financiamiento. Te ayudo con cotización, emisión, requisitos y seguimiento.</p>
+                  <summary id="miniFaqThreeQ">¿Se puede financiar la póliza?</summary>
+                  <p id="miniFaqThreeA">Por ahora no gestiono financiamiento. Te ayudo con cotización, emisión, requisitos y seguimiento.</p>
                 </details>
               </div>
             </div>
@@ -2066,6 +2066,17 @@
         builderTitle: "Arma tu mensaje en 10 segundos.",
         builderCopy: "Elige lo básico y abre WhatsApp con un mensaje más claro.",
         quickButton: "Preparar WhatsApp",
+        quickLabels: ["Necesito", "Tiempo", "Prefiero"],
+        quickNeedOptions: ["Auto", "Salud", "Hogar", "Vida", "Viajes", "Negocios", "Vehículo premium"],
+        quickWhenOptions: ["Hoy", "Esta semana", "Solo explorando"],
+        quickHowOptions: ["WhatsApp", "Llamada", "Presencial"],
+        proofTitles: ["Directo", "Claro", "Flexible"],
+        proofCopies: ["hablas conmigo", "te explico opciones", "WhatsApp o presencial"],
+        miniFaq: [
+          ["¿Puedo agendar una cita presencial?", "Sí. Podemos coordinar una visita en Porsche Center Santo Domingo con cita previa."],
+          ["¿Qué pasa si no sé qué seguro necesito?", "Me escribes y revisamos tu caso. La idea es simplificar, no complicarte."],
+          ["¿Se puede financiar la póliza?", "Por ahora no gestiono financiamiento. Te ayudo con cotización, emisión, requisitos y seguimiento."]
+        ],
         whatsappDefault: "Hola Jacinto, quiero cotizar un seguro.",
         quotePrefix: "Hola Jacinto, quiero cotizar",
         tabs: ["Inicio", "Quién soy", "Seguros", "Requisitos", "Cita", "Dónde estoy"],
@@ -2090,6 +2101,17 @@
         builderTitle: "Build your message in 10 seconds.",
         builderCopy: "Choose the basics and open WhatsApp with a clearer message.",
         quickButton: "Prepare WhatsApp",
+        quickLabels: ["I need", "Timing", "I prefer"],
+        quickNeedOptions: ["Auto", "Health", "Home", "Life", "Travel", "Business", "Premium vehicle"],
+        quickWhenOptions: ["Today", "This week", "Just exploring"],
+        quickHowOptions: ["WhatsApp", "Call", "In person"],
+        proofTitles: ["Direct", "Clear", "Flexible"],
+        proofCopies: ["you talk to me", "I explain options", "WhatsApp or in person"],
+        miniFaq: [
+          ["Can I schedule an in-person meeting?", "Yes. We can coordinate a visit at Porsche Center Santo Domingo by appointment."],
+          ["What if I do not know what I need?", "Message me and we will review your case. The idea is to simplify, not complicate."],
+          ["Can the policy be financed?", "I am not managing financing at the moment. I can help with quotes, issuance, requirements, and follow-up."]
+        ],
         whatsappDefault: "Hi Jacinto, I want to quote an insurance policy.",
         quotePrefix: "Hi Jacinto, I want to quote",
         tabs: ["Start", "About me", "Insurance", "Requirements", "Meeting", "Location"],
@@ -2386,6 +2408,13 @@
       render("auto");
     }
 
+    function setSelectOptions(select, options) {
+      if (!select) return;
+      const selectedIndex = Math.max(select.selectedIndex, 0);
+      select.innerHTML = options.map((option) => `<option>${option}</option>`).join("");
+      select.selectedIndex = Math.min(selectedIndex, options.length - 1);
+    }
+
     function updateStaticLanguage() {
       const text = UI_TEXT[currentLang];
       qs("#heroTitle").textContent = text.heroTitle;
@@ -2395,6 +2424,24 @@
       qs("#builderTitle").textContent = text.builderTitle;
       qs("#builderCopy").textContent = text.builderCopy;
       qs("#quickMessage").textContent = text.quickButton;
+      qs("#quickNeedLabel").textContent = text.quickLabels[0];
+      qs("#quickWhenLabel").textContent = text.quickLabels[1];
+      qs("#quickHowLabel").textContent = text.quickLabels[2];
+      setSelectOptions(qs("#quickNeed"), text.quickNeedOptions);
+      setSelectOptions(qs("#quickWhen"), text.quickWhenOptions);
+      setSelectOptions(qs("#quickHow"), text.quickHowOptions);
+      qsa(".micro-proof > div").forEach((item, index) => {
+        item.querySelector("strong").textContent = text.proofTitles[index];
+        item.querySelector("span").textContent = text.proofCopies[index];
+      });
+      [
+        ["#miniFaqOneQ", "#miniFaqOneA"],
+        ["#miniFaqTwoQ", "#miniFaqTwoA"],
+        ["#miniFaqThreeQ", "#miniFaqThreeA"]
+      ].forEach(([question, answer], index) => {
+        qs(question).textContent = text.miniFaq[index][0];
+        qs(answer).textContent = text.miniFaq[index][1];
+      });
       document.documentElement.lang = currentLang === "en" ? "en" : "es-DO";
       qsa(".tab-button").forEach((button, index) => {
         if (text.tabs[index]) button.textContent = text.tabs[index];
