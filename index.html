@@ -21,14 +21,14 @@
   <style>
     :root {
       --navy: #071a33;
-      --navy-2: #0c2748;
-      --ink: #172033;
-      --muted: #697386;
-      --line: #e7eaf0;
-      --soft: #f5f7fa;
+      --navy-2: #102b4a;
+      --ink: #151c28;
+      --muted: #687280;
+      --line: #e6e8ec;
+      --soft: #f6f7f9;
       --white: #ffffff;
-      --gold: #b99b5f;
-      --gold-2: #e8dcc2;
+      --gold: #bd9a5f;
+      --gold-2: #ebdfc6;
       --red: #a72332;
       --whatsapp: #168c4a;
       --radius: 8px;
@@ -441,6 +441,521 @@
     }
     .advisor-panel .btn {
       width: 100%;
+    }
+    .compact-section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+    .compact-head {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .compact-head h2 {
+      max-width: 650px;
+      font-size: clamp(30px, 5vw, 48px);
+    }
+    .insurance-chooser {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .choice-card {
+      display: grid;
+      gap: 12px;
+      min-height: 148px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.88);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .choice-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(185,155,95,.45);
+      box-shadow: 0 16px 38px rgba(7,26,51,.08);
+    }
+    .choice-card strong {
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.1;
+    }
+    .choice-card span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .direct-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid rgba(185,155,95,.28);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .direct-bar p {
+      color: #3f495b;
+      font-size: 15px;
+    }
+    .mini-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .mini-step {
+      display: grid;
+      gap: 12px;
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--navy);
+      color: #fff;
+      min-height: 164px;
+    }
+    .mini-step span {
+      color: var(--gold-2);
+      font-size: 12px;
+      font-weight: 780;
+      letter-spacing: .12em;
+    }
+    .mini-step strong {
+      font-size: 22px;
+      line-height: 1.1;
+    }
+    .mini-step p {
+      color: rgba(255,255,255,.7);
+      font-size: 15px;
+    }
+    .short-faq {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .closing-panel {
+      display: grid;
+      gap: 22px;
+      justify-items: start;
+      padding: 36px;
+      border-radius: var(--radius);
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(7,26,51,.98), rgba(12,39,72,.92)),
+        var(--navy);
+      overflow: hidden;
+      position: relative;
+    }
+    .closing-panel h2 {
+      color: #fff;
+      max-width: 780px;
+    }
+    .closing-panel p {
+      color: rgba(255,255,255,.72);
+      max-width: 660px;
+      font-size: 18px;
+    }
+    .experience {
+      padding: calc(var(--header) + env(safe-area-inset-top) + 34px) 0 48px;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+    }
+    .experience-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .intro-card,
+    .workspace-card {
+      border: 1px solid rgba(226,233,242,.9);
+      border-radius: 12px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 24px 60px rgba(11,47,85,.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .intro-card {
+      padding: 30px;
+      display: grid;
+      gap: 22px;
+      align-content: start;
+    }
+    .profile-line {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+    .profile-line .brand-mark {
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      flex: 0 0 auto;
+    }
+    .profile-line strong {
+      display: block;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .profile-line span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .intro-card h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: .95;
+      max-width: 8.5ch;
+    }
+    .intro-card .lead {
+      font-size: 19px;
+      max-width: 460px;
+    }
+    .quick-actions {
+      display: grid;
+      gap: 10px;
+    }
+    .utility-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .utility-pill {
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,47,85,.12);
+      background: #fff;
+      color: #32465e;
+      cursor: pointer;
+      font-weight: 730;
+      font-size: 12px;
+      transition: background .2s ease, transform .2s ease, border-color .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .utility-pill:hover {
+      transform: translateY(-1px);
+      border-color: rgba(189,154,95,.42);
+    }
+    .utility-pill.is-active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+    .micro-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .micro-proof strong {
+      display: block;
+      color: var(--navy);
+      font-size: 15px;
+    }
+    .micro-proof span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+    .workspace-card {
+      padding: 18px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 640px;
+    }
+    .tablist {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      padding: 6px;
+      border-radius: 10px;
+      background: #f0f2f5;
+    }
+    .tab-button {
+      min-height: 44px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: #4d6076;
+      cursor: pointer;
+      font-weight: 730;
+      font-size: 14px;
+      transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tab-button[aria-selected="true"] {
+      background: #fff;
+      color: var(--navy);
+      box-shadow: 0 8px 22px rgba(11,47,85,.08);
+    }
+    .tab-panels {
+      position: relative;
+      padding: 28px 8px 8px;
+    }
+    .tab-panel {
+      display: none;
+      animation: panelIn .28s ease both;
+    }
+    .tab-panel.is-active {
+      display: block;
+    }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .panel-inner {
+      display: grid;
+      gap: 22px;
+    }
+    .panel-kicker {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 780;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .panel-inner h2 {
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1;
+    }
+    .panel-inner > p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .action-card {
+      display: grid;
+      gap: 12px;
+      min-height: 178px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+    .action-card strong {
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.1;
+    }
+    .action-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .quick-builder {
+      display: grid;
+      gap: 14px;
+      padding: 20px;
+      border: 1px solid rgba(7,26,51,.12);
+      border-radius: 12px;
+      background: linear-gradient(180deg, #fff, var(--soft));
+    }
+    .quick-builder strong {
+      color: var(--navy);
+      font-size: 20px;
+    }
+    .quick-builder p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .quick-builder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .quick-builder select {
+      min-height: 46px;
+    }
+    .mini-faq {
+      display: grid;
+      gap: 10px;
+    }
+    .pill-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill-row span,
+    .pill-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(189,154,95,.28);
+      background: #fff;
+      color: #32465e;
+      font-size: 13px;
+      font-weight: 680;
+    }
+    .insurance-picker {
+      display: grid;
+      gap: 16px;
+    }
+    .insurance-options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .insurance-option {
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,47,85,.12);
+      background: #fff;
+      color: #32465e;
+      cursor: pointer;
+      font-weight: 720;
+      font-size: 13px;
+      transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .insurance-option:hover {
+      transform: translateY(-1px);
+      border-color: rgba(189,154,95,.46);
+    }
+    .insurance-option.is-active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+    .insurance-detail {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      padding: 24px;
+      border: 1px solid rgba(189,154,95,.32);
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(243,248,252,.92)),
+        #fff;
+      overflow: hidden;
+      transition: transform .22s ease, opacity .22s ease;
+    }
+    .insurance-detail.is-changing {
+      opacity: .45;
+      transform: translateY(6px);
+    }
+    .insurance-detail::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), rgba(7,26,51,.18));
+    }
+    .insurance-detail-head {
+      display: grid;
+      gap: 8px;
+      padding-top: 4px;
+    }
+    .insurance-detail-head span {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .insurance-detail-head strong {
+      color: var(--navy);
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1;
+    }
+    .insurance-detail-head p {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 16px;
+    }
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .coverage-box {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+    .coverage-box b {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .coverage-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #44546a;
+      font-size: 14px;
+    }
+    .coverage-box li {
+      margin: 5px 0;
+    }
+    .insurance-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .bio-note {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+    .bio-note strong {
+      color: var(--navy);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .bio-note span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .requirement-card {
+      display: grid;
+      gap: 16px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+    .requirement-card strong {
+      color: var(--navy);
+      font-size: 20px;
+    }
+    .requirement-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .requirement-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #3f4f63;
+    }
+    .requirement-card li {
+      margin: 6px 0;
+    }
+    .requirement-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .map-frame {
+      width: 100%;
+      height: 260px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--soft);
     }
     .portrait-panel {
       position: relative;
@@ -893,6 +1408,21 @@
 
     @media (max-width: 980px) {
       .nav-links { display: none; }
+      .experience {
+        padding-top: calc(var(--header) + env(safe-area-inset-top) + 22px);
+      }
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+      .workspace-card {
+        min-height: auto;
+      }
+      .action-grid {
+        grid-template-columns: 1fr;
+      }
+      .requirement-actions {
+        grid-template-columns: 1fr;
+      }
       .hero {
         padding-top: calc(var(--header) + env(safe-area-inset-top) + 22px);
       }
@@ -925,7 +1455,7 @@
       .section-head { margin-bottom: 28px; }
       .site-header {
         position: relative;
-        padding-top: calc(env(safe-area-inset-top) + 94px);
+        padding-top: calc(env(safe-area-inset-top) + 88px);
         background: transparent;
         border-bottom: 0;
         box-shadow: none;
@@ -945,6 +1475,81 @@
       }
       .brand-text strong { max-width: 170px; }
       .nav-cta { display: none; }
+      .experience {
+        padding: 16px 0 38px;
+        align-items: start;
+      }
+      .experience-grid {
+        gap: 14px;
+      }
+      .intro-card,
+      .workspace-card {
+        border-radius: 10px;
+        box-shadow: 0 18px 44px rgba(11,47,85,.08);
+      }
+      .intro-card {
+        padding: 18px;
+        gap: 14px;
+      }
+      .intro-card .profile-line {
+        display: none;
+      }
+      .intro-card h1 {
+        font-size: clamp(34px, 10vw, 44px);
+        max-width: 10ch;
+      }
+      .intro-card .lead {
+        font-size: 16px;
+        line-height: 1.38;
+      }
+      .quick-actions .btn {
+        width: 100%;
+        min-height: 46px;
+      }
+      .quick-builder-grid {
+        grid-template-columns: 1fr;
+      }
+      .workspace-card {
+        padding: 12px;
+      }
+      .tablist {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .tablist::-webkit-scrollbar { display: none; }
+      .tab-button {
+        flex: 0 0 auto;
+        padding: 0 14px;
+        scroll-snap-align: start;
+      }
+      .tab-panels {
+        padding: 22px 4px 4px;
+      }
+      .panel-inner h2 {
+        font-size: clamp(28px, 8vw, 36px);
+      }
+      .panel-inner > p {
+        font-size: 16px;
+      }
+      .bio-grid,
+      .micro-proof {
+        grid-template-columns: 1fr;
+      }
+      .coverage-grid,
+      .insurance-actions {
+        grid-template-columns: 1fr;
+      }
+      .insurance-detail {
+        padding: 20px;
+      }
+      .micro-proof {
+        display: none;
+      }
+      .map-frame {
+        height: 240px;
+      }
       h1 {
         max-width: 11ch;
         font-size: clamp(40px, 11.2vw, 52px);
@@ -1013,8 +1618,30 @@
       .grid.cols-3,
       .testimonials,
       .steps,
-      .form-row {
+      .form-row,
+      .insurance-chooser,
+      .mini-flow,
+      .direct-bar {
         grid-template-columns: 1fr;
+      }
+      .compact-section {
+        padding: 54px 0;
+      }
+      .compact-head h2 {
+        font-size: clamp(28px, 8vw, 36px);
+      }
+      .choice-card {
+        min-height: auto;
+        padding: 18px;
+      }
+      .direct-bar .btn {
+        width: 100%;
+      }
+      .mini-step {
+        min-height: auto;
+      }
+      .closing-panel {
+        padding: 26px 22px;
       }
       .card {
         padding: 20px;
@@ -1093,10 +1720,9 @@
         </span>
       </a>
       <nav class="nav-links" aria-label="Navegación principal">
-        <a href="#seguros">Seguros</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#cotizar">Cotizar</a>
+        <a class="tab-jump" href="#seguros" data-tab-target="seguros">Seguros</a>
+        <a class="tab-jump" href="#cita" data-tab-target="cita">Cita</a>
+        <a class="tab-jump" href="#ubicacion" data-tab-target="ubicacion">Dónde estoy</a>
       </nav>
       <a class="btn btn-secondary nav-cta js-whatsapp" href="#" aria-label="Cotizar por WhatsApp">
         Cotizar
@@ -1104,242 +1730,284 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow reveal">La Colonial · República Dominicana</span>
-          <div class="reveal" style="--delay: 70ms">
-            <h1>Protegiendo lo que más valoras.</h1>
-          </div>
-          <p class="lead reveal" style="--delay: 140ms">Cotizaciones, emisión de pólizas y seguimiento personalizado con respuesta directa por WhatsApp.</p>
-          <div class="identity reveal" style="--delay: 190ms">
-            <span data-agent-name>Jacinto Daniel Peynado</span>
-            <span>Agente de Seguros</span>
-            <span>Atención concierge</span>
-          </div>
-          <div class="mobile-proof reveal" style="--delay: 215ms" aria-label="Servicios principales">
-            <span>Autos</span>
-            <span>Salud</span>
-            <span>Hogar</span>
-            <span>Vida</span>
-          </div>
-          <div class="hero-actions reveal" style="--delay: 240ms">
-            <a class="btn btn-primary js-whatsapp" href="#">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8.5 11.3c.9 1.8 2.4 3.2 4.2 4.2l1.4-1.4c.2-.2.5-.3.8-.2.9.3 1.8.4 2.8.4.4 0 .7.3.7.7v2.3c0 .4-.3.7-.7.7A12.7 12.7 0 0 1 5 5.3c0-.4.3-.7.7-.7H8c.4 0 .7.3.7.7 0 1 .1 1.9.4 2.8.1.3 0 .6-.2.8l-1.4 1.4Z"/></svg>
-              Cotizar por WhatsApp
-            </a>
-            <a class="btn btn-secondary" href="#seguros">Ver tipos de seguros</a>
-          </div>
-          <div class="trust-row reveal" style="--delay: 310ms" aria-label="Indicadores de confianza">
-            <div class="trust-item"><strong>24h</strong><span>seguimiento ágil</span></div>
-            <div class="trust-item"><strong>1:1</strong><span>servicio directo</span></div>
-            <div class="trust-item"><strong>SDQ</strong><span>Santo Domingo</span></div>
+  <main class="experience" id="inicio">
+    <div class="wrap experience-grid">
+      <section class="intro-card">
+        <div class="profile-line">
+          <span class="brand-mark" data-initials>JD</span>
+          <div>
+            <strong data-agent-name>Jacinto Daniel Peynado</strong>
+            <span>Agente de Seguros · La Colonial</span>
           </div>
         </div>
+        <span class="eyebrow">Santo Domingo</span>
+        <div class="utility-row" aria-label="Preferencias">
+          <button class="utility-pill is-active" type="button" id="langEs">ES</button>
+          <button class="utility-pill" type="button" id="langEn">EN</button>
+          <a class="utility-pill" href="jacinto-daniel-peynado.vcf" download>Guardar contacto</a>
+        </div>
+        <h1 id="heroTitle">Seguro claro. Atención directa.</h1>
+        <p class="lead" id="heroLead">Cotiza, agenda una cita o visítame en Porsche Center Santo Domingo. Te ayudo a elegir sin complicarte.</p>
+        <div class="quick-actions">
+          <a class="btn btn-primary js-whatsapp" id="heroWhatsapp" href="#">Escribir por WhatsApp</a>
+          <button class="btn btn-secondary tab-jump" id="heroAppointment" type="button" data-tab-target="cita">Agendar cita</button>
+        </div>
+        <div class="micro-proof">
+          <div><strong>Directo</strong><span>hablas conmigo</span></div>
+          <div><strong>Claro</strong><span>te explico opciones</span></div>
+          <div><strong>Flexible</strong><span>WhatsApp o presencial</span></div>
+        </div>
+      </section>
 
-        <aside class="advisor-panel reveal" style="--delay: 120ms" aria-label="Resumen de servicio premium">
-          <div class="advisor-top">
-            <div class="advisor-mark" data-initials>JD</div>
-            <div>
-              <strong data-agent-name>Jacinto Daniel Peynado</strong>
-              <span>Agente de Seguros · La Colonial</span>
+      <section class="workspace-card" aria-label="Información y acciones">
+        <div class="tablist" role="tablist" aria-label="Secciones principales">
+          <button class="tab-button" id="tab-inicio" type="button" role="tab" aria-selected="true" aria-controls="panel-inicio" data-tab="inicio">Inicio</button>
+          <button class="tab-button" id="tab-quien" type="button" role="tab" aria-selected="false" aria-controls="panel-quien" data-tab="quien">Quién soy</button>
+          <button class="tab-button" id="tab-seguros" type="button" role="tab" aria-selected="false" aria-controls="panel-seguros" data-tab="seguros">Seguros</button>
+          <button class="tab-button" id="tab-requisitos" type="button" role="tab" aria-selected="false" aria-controls="panel-requisitos" data-tab="requisitos">Requisitos</button>
+          <button class="tab-button" id="tab-cita" type="button" role="tab" aria-selected="false" aria-controls="panel-cita" data-tab="cita">Cita</button>
+          <button class="tab-button" id="tab-ubicacion" type="button" role="tab" aria-selected="false" aria-controls="panel-ubicacion" data-tab="ubicacion">Dónde estoy</button>
+        </div>
+
+        <div class="tab-panels">
+          <article class="tab-panel is-active" id="panel-inicio" role="tabpanel" aria-labelledby="tab-inicio">
+            <div class="panel-inner">
+              <span class="panel-kicker">Para empezar</span>
+              <h2>Elige cómo quieres avanzar.</h2>
+              <p>Si tienes prisa, escríbeme. Si prefieres sentarte y revisarlo con calma, agenda una cita.</p>
+              <div class="action-grid">
+                <div class="action-card">
+                  <strong>Cotizar ahora</strong>
+                  <p>Me dices qué quieres asegurar y te pido solo lo necesario.</p>
+                  <a class="btn btn-primary js-whatsapp" href="#">WhatsApp</a>
+                </div>
+                <div class="action-card">
+                  <strong>Agendar cita</strong>
+                  <p>Podemos coordinar llamada o reunión presencial.</p>
+                  <button class="btn btn-secondary tab-jump" type="button" data-tab-target="cita">Ver opciones</button>
+                </div>
+                <div class="action-card">
+                  <strong>Visitarme</strong>
+                  <p>Estoy disponible en Porsche Center Santo Domingo con cita previa.</p>
+                  <button class="btn btn-secondary tab-jump" type="button" data-tab-target="ubicacion">Ver mapa</button>
+                </div>
+              </div>
+              <div class="quick-builder">
+                <strong id="builderTitle">Arma tu mensaje en 10 segundos.</strong>
+                <p id="builderCopy">Elige lo básico y abre WhatsApp con un mensaje más claro.</p>
+                <div class="quick-builder-grid">
+                  <div class="field">
+                    <label for="quickNeed">Necesito</label>
+                    <select id="quickNeed">
+                      <option>Auto</option>
+                      <option>Salud</option>
+                      <option>Hogar</option>
+                      <option>Vida</option>
+                      <option>Viajes</option>
+                      <option>Negocios</option>
+                      <option>Vehículo premium</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="quickWhen">Tiempo</label>
+                    <select id="quickWhen">
+                      <option>Hoy</option>
+                      <option>Esta semana</option>
+                      <option>Solo explorando</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="quickHow">Prefiero</label>
+                    <select id="quickHow">
+                      <option>WhatsApp</option>
+                      <option>Llamada</option>
+                      <option>Presencial</option>
+                    </select>
+                  </div>
+                </div>
+                <a class="btn btn-primary" id="quickMessage" href="#">Preparar WhatsApp</a>
+              </div>
+              <div class="mini-faq">
+                <details>
+                  <summary>¿Puedo agendar una cita presencial?</summary>
+                  <p>Sí. Podemos coordinar una visita en Porsche Center Santo Domingo con cita previa.</p>
+                </details>
+                <details>
+                  <summary>¿Qué pasa si no sé qué seguro necesito?</summary>
+                  <p>Me escribes y revisamos tu caso. La idea es simplificar, no complicarte.</p>
+                </details>
+                <details>
+                  <summary>¿Se puede financiar la póliza?</summary>
+                  <p>Por ahora no gestiono financiamiento. Te ayudo con cotización, emisión, requisitos y seguimiento.</p>
+                </details>
+              </div>
             </div>
-          </div>
-          <div class="advisor-statement">
-            <p>Una gestión más clara para asegurar sin perder tiempo.</p>
-            <span>Atención privada, seguimiento ordenado y acompañamiento cuando realmente importa.</span>
-          </div>
-          <div class="advisor-list">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Cotización rápida para autos, salud, hogar, vida y negocios.</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Explicación clara de coberturas, deducibles y condiciones.</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Seguimiento para renovaciones y asistencia en siniestros.</span>
-          </div>
-          <a class="btn btn-secondary" href="#cotizar">Completar cotización rápida</a>
-        </aside>
-      </div>
-    </section>
+          </article>
 
-    <section class="section about" id="sobre-mi">
-      <div class="wrap about-grid">
-        <div class="section-head reveal">
-          <span class="eyebrow">Sobre mí</span>
-          <h2>Un servicio claro, directo y diseñado alrededor de ti.</h2>
-        </div>
-        <div class="about-copy">
-          <p class="reveal">Te acompaño con una gestión de seguros seria y cercana: desde la cotización inicial hasta la emisión de tu póliza, renovaciones, seguimiento y asistencia cuando realmente necesitas una respuesta.</p>
-          <p class="reveal">Mi trabajo es simplificar el proceso, explicarte tus opciones con claridad y ayudarte a tomar una decisión segura, sin presión y con atención personalizada.</p>
-          <div class="signature-card reveal">
-            <div class="check-list">
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Cotizaciones organizadas y fáciles de comparar.</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Emisión, renovaciones y seguimiento antes del vencimiento.</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Acompañamiento en siniestros con trato humano y profesional.</span>
+          <article class="tab-panel" id="panel-quien" role="tabpanel" aria-labelledby="tab-quien">
+            <div class="panel-inner">
+              <span class="panel-kicker">Quién soy</span>
+              <h2>Vengo del mundo de negocios y servicio premium.</h2>
+              <p>Soy graduado en Negocios Internacionales por Hult International Business School en Boston. Mi experiencia en Porsche Center Santo Domingo me enseñó a trabajar con clientes que valoran claridad, rapidez y buen seguimiento.</p>
+              <div class="bio-grid">
+                <div class="bio-note"><strong>Formación internacional</strong><span>Negocios Internacionales, Hult Boston.</span></div>
+                <div class="bio-note"><strong>Servicio premium</strong><span>Experiencia en ventas y postventa automotriz de lujo.</span></div>
+                <div class="bio-note"><strong>Bilingüe</strong><span>Comunicación en español e inglés.</span></div>
+                <div class="bio-note"><strong>Enfoque</strong><span>Relaciones, confianza y soluciones prácticas.</span></div>
+              </div>
             </div>
-            <div class="line"></div>
-            <p>Atención premium para personas que valoran rapidez, discreción y confianza.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+          </article>
 
-    <section class="section" id="seguros">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Qué necesitas asegurar</span>
-          <h2>Soluciones para tu vida, tu familia y tus activos.</h2>
-          <p class="lead">Cada caso se revisa con atención para buscar una opción adecuada a tu perfil, presupuesto y prioridades.</p>
-        </div>
-        <div class="grid cols-4">
-          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 16h14M6.5 16l1-5h9l1 5M8 19h.01M16 19h.01M8 11l1.2-3h5.6L16 11"/></svg></span><h3>Autos</h3><p>Coberturas prácticas para moverte con tranquilidad y respuesta cuando la necesites.</p></article>
-          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 21s8-4.4 8-11V5l-8-3-8 3v5c0 6.6 8 11 8 11Z"/><path d="M12 8v6M9 11h6"/></svg></span><h3>Salud</h3><p>Opciones para cuidar tu bienestar con acceso, continuidad y respaldo.</p></article>
-          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span><h3>Hogar</h3><p>Protección para tu vivienda, contenido y tranquilidad familiar.</p></article>
-          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></span><h3>Vida</h3><p>Planes pensados para proteger a quienes dependen de ti.</p></article>
-          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11h18M5 11l2 8h10l2-8"/><path d="M7 11l5-7 5 7"/></svg></span><h3>Viajes</h3><p>Asistencia para viajar con más seguridad dentro y fuera del país.</p></article>
-          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-8h6v8"/><path d="M9 9h.01M15 9h.01"/></svg></span><h3>Negocios</h3><p>Coberturas comerciales para operaciones, activos y continuidad empresarial.</p></article>
-          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 15h16l-2-5H6l-2 5Z"/><path d="M7 15v2M17 15v2"/><path d="M8 10l1-3h6l1 3"/></svg></span><h3>Vehículos premium</h3><p>Atención refinada para autos de alto valor, uso ejecutivo y colecciones personales.</p></article>
-          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v18M3 12h18"/><path d="M5 5l14 14M19 5 5 19"/></svg></span><h3>Otros seguros</h3><p>Si tienes una necesidad específica, la evaluamos con discreción y claridad.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section benefits" id="beneficios">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Por qué elegirme</span>
-          <h2>Gestión premium, sin complicarte el día.</h2>
-        </div>
-        <div class="grid cols-4">
-          <article class="card benefit reveal"><h3>Atención personalizada</h3><p>Tu caso se revisa con contexto, no como un número más.</p></article>
-          <article class="card benefit reveal"><h3>Respuesta rápida</h3><p>Comunicación ágil para cotizar, aclarar y avanzar.</p></article>
-          <article class="card benefit reveal"><h3>Seguimiento preventivo</h3><p>Recordatorios antes del vencimiento para evitar sorpresas.</p></article>
-          <article class="card benefit reveal"><h3>Renovaciones simples</h3><p>Te ayudo a mantener tu protección al día con orden.</p></article>
-          <article class="card benefit reveal"><h3>Servicio directo</h3><p>Hablas con una persona que conoce tu caso.</p></article>
-          <article class="card benefit reveal"><h3>Asistencia en siniestros</h3><p>Acompañamiento cuando más importa actuar correctamente.</p></article>
-          <article class="card benefit reveal"><h3>Experiencia premium</h3><p>Trato claro, discreto y profesional de principio a fin.</p></article>
-          <article class="card benefit reveal"><h3>Acompañamiento continuo</h3><p>Una relación de confianza más allá de la emisión.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section process" id="proceso">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Cómo funciona</span>
-          <h2>Cuatro pasos. Cero fricción.</h2>
-          <p class="lead">Un proceso elegante y claro para que tomes decisiones con confianza.</p>
-        </div>
-        <div class="steps">
-          <div class="step reveal"><span class="num">01</span><div><h3>Me escribes</h3><p>Me compartes lo que quieres asegurar y tus datos básicos.</p></div></div>
-          <div class="step reveal"><span class="num">02</span><div><h3>Te cotizo</h3><p>Preparo una opción clara según tu necesidad y presupuesto.</p></div></div>
-          <div class="step reveal"><span class="num">03</span><div><h3>Comparas opciones</h3><p>Revisamos coberturas, deducibles y condiciones relevantes.</p></div></div>
-          <div class="step reveal"><span class="num">04</span><div><h3>Emitimos tu póliza</h3><p>Formalizamos tu protección y quedas acompañado.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="premium-strip">
-      <div class="wrap premium-content">
-        <div class="reveal">
-          <span class="eyebrow">Clientes premium</span>
-          <h2>Para quienes esperan un servicio a la altura de sus activos.</h2>
-          <p>Especializado en clientes que buscan atención rápida, personalizada y premium: empresarios, familias, vehículos de lujo y perfiles que valoran una gestión seria.</p>
-        </div>
-        <div class="badge-stack reveal">
-          <span class="badge">Empresarios</span>
-          <span class="badge">Familias</span>
-          <span class="badge">Vehículos de lujo</span>
-          <span class="badge">Atención privada</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="testimonios">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Testimonios</span>
-          <h2>Experiencias que hablan de confianza.</h2>
-        </div>
-        <div class="grid testimonials">
-          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Excelente atención.”</p><strong>Cliente particular</strong></article>
-          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Proceso rápido y profesional.”</p><strong>Seguro de auto</strong></article>
-          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Siempre disponible para ayudar.”</p><strong>Renovación</strong></article>
-          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Muy buena experiencia.”</p><strong>Asesoría familiar</strong></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">FAQ</span>
-          <h2>Preguntas frecuentes, respuestas claras.</h2>
-        </div>
-        <div class="faq-list">
-          <details class="reveal"><summary>¿Qué necesito para cotizar?</summary><p>Depende del tipo de seguro. Para vehículos normalmente se solicita marca, modelo, año, versión, uso y datos básicos del titular.</p></details>
-          <details class="reveal"><summary>¿Qué es el deducible?</summary><p>Es la parte del reclamo que asume el asegurado según las condiciones de la póliza. Te explico ese punto antes de decidir.</p></details>
-          <details class="reveal"><summary>¿Puedo financiar la póliza?</summary><p>En muchos casos existen facilidades de pago. Revisamos las opciones disponibles según el tipo de póliza.</p></details>
-          <details class="reveal"><summary>¿Cómo funciona en caso de accidente?</summary><p>Me contactas tan pronto sea posible y te oriento sobre los pasos, documentación y canales correspondientes.</p></details>
-          <details class="reveal"><summary>¿Cuánto tarda una cotización?</summary><p>Si la información está completa, una cotización puede gestionarse con rapidez. El tiempo final depende del caso y tipo de seguro.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section quote" id="cotizar">
-      <div class="wrap quote-grid">
-        <div class="section-head reveal">
-          <span class="eyebrow">Cotización rápida</span>
-          <h2>Envíame tus datos y avanzamos por WhatsApp.</h2>
-          <p class="lead">El formulario prepara un mensaje con tu información para que podamos iniciar sin vueltas.</p>
-        </div>
-        <form class="form reveal" id="quoteForm">
-          <div class="form-row">
-            <div class="field">
-              <label for="name">Nombre</label>
-              <input id="name" name="name" autocomplete="name" placeholder="Tu nombre" required>
+          <article class="tab-panel" id="panel-seguros" role="tabpanel" aria-labelledby="tab-seguros">
+            <div class="panel-inner">
+              <span class="panel-kicker">Seguros</span>
+              <h2>Explora antes de escribirme.</h2>
+              <p>Toca un seguro para ver qué suele cubrir, qué datos hacen falta y cómo avanzar.</p>
+              <div class="insurance-picker">
+                <div class="insurance-options" aria-label="Tipos de seguros">
+                  <button class="insurance-option is-active" type="button" data-insurance="auto">Auto</button>
+                  <button class="insurance-option" type="button" data-insurance="salud">Salud</button>
+                  <button class="insurance-option" type="button" data-insurance="hogar">Hogar</button>
+                  <button class="insurance-option" type="button" data-insurance="vida">Vida</button>
+                  <button class="insurance-option" type="button" data-insurance="viajes">Viajes</button>
+                  <button class="insurance-option" type="button" data-insurance="negocios">Negocios</button>
+                  <button class="insurance-option" type="button" data-insurance="premium">Vehículo premium</button>
+                </div>
+                <div class="insurance-detail" id="insuranceDetail" aria-live="polite">
+                  <div class="insurance-detail-head">
+                    <span id="insuranceKicker">Seguro de auto</span>
+                    <strong id="insuranceTitle">Muévete con respaldo y claridad.</strong>
+                    <p id="insuranceSummary">Ideal para proteger tu vehículo, cumplir requisitos de circulación y tener una ruta clara si ocurre un accidente.</p>
+                  </div>
+                  <div class="coverage-grid">
+                    <div class="coverage-box">
+                      <b id="coverLabel">Puede cubrir</b>
+                      <ul id="coverageList">
+                        <li>Daños propios según la cobertura elegida.</li>
+                        <li>Responsabilidad civil frente a terceros.</li>
+                        <li>Robo, incendio o asistencia según el plan.</li>
+                      </ul>
+                    </div>
+                    <div class="coverage-box">
+                      <b id="reqLabel">Para cotizar</b>
+                      <ul id="requirementsList">
+                        <li>Marca, modelo y año.</li>
+                        <li>Uso del vehículo.</li>
+                        <li>Datos del titular.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="insurance-actions">
+                    <a class="btn btn-primary" id="insuranceWhatsapp" href="#">Cotizar este seguro</a>
+                    <button class="btn btn-secondary tab-jump" id="insuranceReqButton" type="button" data-tab-target="requisitos">Ver requisitos</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="field">
-              <label for="phone">Teléfono</label>
-              <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="809 000 0000" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="vehicle">Vehículo</label>
-              <input id="vehicle" name="vehicle" placeholder="Marca y modelo">
-            </div>
-            <div class="field">
-              <label for="year">Año</label>
-              <input id="year" name="year" inputmode="numeric" placeholder="2026">
-            </div>
-          </div>
-          <div class="field">
-            <label for="insurance">Tipo de seguro</label>
-            <select id="insurance" name="insurance">
-              <option>Auto</option>
-              <option>Salud</option>
-              <option>Hogar</option>
-              <option>Vida</option>
-              <option>Viajes</option>
-              <option>Negocios / comercial</option>
-              <option>Vehículo premium</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <button class="btn btn-whatsapp" type="submit">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8.5 11.3c.9 1.8 2.4 3.2 4.2 4.2l1.4-1.4c.2-.2.5-.3.8-.2.9.3 1.8.4 2.8.4.4 0 .7.3.7.7v2.3c0 .4-.3.7-.7.7A12.7 12.7 0 0 1 5 5.3c0-.4.3-.7.7-.7H8c.4 0 .7.3.7.7 0 1 .1 1.9.4 2.8.1.3 0 .6-.2.8l-1.4 1.4Z"/></svg>
-            Solicitar cotización
-          </button>
-        </form>
-      </div>
-    </section>
+          </article>
 
-    <section class="final-cta">
-      <div class="wrap reveal">
-        <span class="eyebrow">Atención directa</span>
-        <h2>Escríbeme y te ayudo a encontrar la mejor opción para ti.</h2>
-        <a class="btn btn-primary js-whatsapp" href="#">Hablar por WhatsApp</a>
-      </div>
-    </section>
+          <article class="tab-panel" id="panel-requisitos" role="tabpanel" aria-labelledby="tab-requisitos">
+            <div class="panel-inner">
+              <span class="panel-kicker">Qué debes enviar</span>
+              <h2>Formulario Conoce tu Cliente.</h2>
+              <p>Para avanzar con la emisión, normalmente se completa el formulario según el tipo de cliente: persona física o persona jurídica.</p>
+              <div class="bio-grid">
+                <div class="requirement-card">
+                  <strong>Persona física</strong>
+                  <p>Para clientes individuales.</p>
+                  <ul>
+                    <li>Formulario Conoce tu Cliente persona física.</li>
+                    <li>Cédula o documento de identidad.</li>
+                    <li>Datos del bien o seguro a cotizar.</li>
+                  </ul>
+                  <div class="requirement-actions">
+                    <a class="btn btn-secondary" href="conoce-tu-cliente-persona-fisica.pdf" target="_blank" rel="noreferrer">Ver PDF</a>
+                    <a class="btn btn-primary js-whatsapp-kyc" href="#" data-kyc="persona física">Enviar caso</a>
+                  </div>
+                </div>
+                <div class="requirement-card">
+                  <strong>Persona jurídica</strong>
+                  <p>Para empresas o negocios.</p>
+                  <ul>
+                    <li>Formulario Conoce tu Cliente persona jurídica.</li>
+                    <li>Documentos de la empresa y representante.</li>
+                    <li>Datos del seguro o activo a proteger.</li>
+                  </ul>
+                  <div class="requirement-actions">
+                    <a class="btn btn-secondary" href="conoce-tu-cliente-persona-juridica.pdf" target="_blank" rel="noreferrer">Ver PDF</a>
+                    <a class="btn btn-primary js-whatsapp-kyc" href="#" data-kyc="persona jurídica">Enviar caso</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="panel-cita" role="tabpanel" aria-labelledby="tab-cita">
+            <div class="panel-inner">
+              <span class="panel-kicker">Cita</span>
+              <h2>Agenda una conversación.</h2>
+              <p>Puede ser por llamada, WhatsApp o presencial en Porsche Center Santo Domingo.</p>
+              <form class="form" id="quoteForm">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="name">Nombre</label>
+                    <input id="name" name="name" autocomplete="name" placeholder="Tu nombre" required>
+                  </div>
+                  <div class="field">
+                    <label for="phone">Teléfono</label>
+                    <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="809 000 0000" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="insurance">Qué necesitas</label>
+                    <select id="insurance" name="insurance">
+                      <option>Cotizar seguro</option>
+                      <option>Agendar cita presencial</option>
+                      <option>Renovar póliza</option>
+                      <option>Revisar opciones</option>
+                      <option>Asistencia con siniestro</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="meeting">Preferencia</label>
+                    <select id="meeting" name="meeting">
+                      <option>WhatsApp</option>
+                      <option>Llamada</option>
+                      <option>Presencial en Porsche Center</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="vehicle">Vehículo o detalle</label>
+                    <input id="vehicle" name="vehicle" placeholder="Ej. Porsche Macan / seguro de salud">
+                  </div>
+                  <div class="field">
+                    <label for="year">Año</label>
+                    <input id="year" name="year" inputmode="numeric" placeholder="2026">
+                  </div>
+                </div>
+                <button class="btn btn-whatsapp" type="submit">Enviar por WhatsApp</button>
+              </form>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="panel-ubicacion" role="tabpanel" aria-labelledby="tab-ubicacion">
+            <div class="panel-inner">
+              <span class="panel-kicker">Dónde estoy</span>
+              <h2>Puedes venir a Porsche Center Santo Domingo.</h2>
+              <p>Con cita previa, podemos ver tu caso presencialmente en Av. Simón Bolívar 965, Santo Domingo 10108.</p>
+              <iframe class="map-frame" title="Mapa Porsche Center Santo Domingo" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Porsche%20Center%20Santo%20Domingo%20Av%20Sim%C3%B3n%20Bol%C3%ADvar%20965&output=embed"></iframe>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Porsche%20Center%20Santo%20Domingo%20Av%20Sim%C3%B3n%20Bol%C3%ADvar%20965" target="_blank" rel="noreferrer">Abrir en Google Maps</a>
+                <a class="btn btn-secondary js-appointment" href="#">Agendar visita</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -1375,18 +2043,188 @@
       role: "Agente de Seguros",
       phoneDisplay: "+1 (849) 571-1227",
       whatsappNumber: "18495711227",
-      email: "correo@ejemplo.com",
+      email: "jacintodpeynado@gmail.com",
       instagram: "@instagram",
       instagramUrl: "https://instagram.com/",
-      location: "Santo Domingo",
+      location: "Porsche Center Santo Domingo",
       photoUrl: ""
     };
 
     const qs = (selector, root = document) => root.querySelector(selector);
     const qsa = (selector, root = document) => [...root.querySelectorAll(selector)];
     const clean = (value) => String(value || "").trim();
-    const whatsappUrl = (message = "Hola, quiero cotizar un seguro.") =>
+    const whatsappUrl = (message = "Hola Jacinto, quiero cotizar un seguro.") =>
       `https://wa.me/${AGENT.whatsappNumber}?text=${encodeURIComponent(message)}`;
+    let currentLang = "es";
+    let currentInsurance = "auto";
+    const UI_TEXT = {
+      es: {
+        heroTitle: "Seguro claro. Atención directa.",
+        heroLead: "Cotiza, agenda una cita o visítame en Porsche Center Santo Domingo. Te ayudo a elegir sin complicarte.",
+        heroWhatsapp: "Escribir por WhatsApp",
+        heroAppointment: "Agendar cita",
+        builderTitle: "Arma tu mensaje en 10 segundos.",
+        builderCopy: "Elige lo básico y abre WhatsApp con un mensaje más claro.",
+        quickButton: "Preparar WhatsApp",
+        whatsappDefault: "Hola Jacinto, quiero cotizar un seguro.",
+        quotePrefix: "Hola Jacinto, quiero cotizar",
+        tabs: ["Inicio", "Quién soy", "Seguros", "Requisitos", "Cita", "Dónde estoy"],
+        startKicker: "Para empezar",
+        startTitle: "Elige cómo quieres avanzar.",
+        startCopy: "Si tienes prisa, escríbeme. Si prefieres sentarte y revisarlo con calma, agenda una cita.",
+        actionTitles: ["Cotizar ahora", "Agendar cita", "Visitarme"],
+        actionCopies: ["Me dices qué quieres asegurar y te pido solo lo necesario.", "Podemos coordinar llamada o reunión presencial.", "Estoy disponible en Porsche Center Santo Domingo con cita previa."],
+        actionButtons: ["WhatsApp", "Ver opciones", "Ver mapa"],
+        segurosTitle: "Explora antes de escribirme.",
+        segurosCopy: "Toca un seguro para ver qué suele cubrir, qué datos hacen falta y cómo avanzar.",
+        coverLabel: "Puede cubrir",
+        reqLabel: "Para cotizar",
+        quoteThis: "Cotizar este seguro",
+        seeReq: "Ver requisitos"
+      },
+      en: {
+        heroTitle: "Clear insurance. Direct attention.",
+        heroLead: "Quote, schedule a meeting, or visit me at Porsche Center Santo Domingo. I will help you choose without complications.",
+        heroWhatsapp: "Message on WhatsApp",
+        heroAppointment: "Schedule meeting",
+        builderTitle: "Build your message in 10 seconds.",
+        builderCopy: "Choose the basics and open WhatsApp with a clearer message.",
+        quickButton: "Prepare WhatsApp",
+        whatsappDefault: "Hi Jacinto, I want to quote an insurance policy.",
+        quotePrefix: "Hi Jacinto, I want to quote",
+        tabs: ["Start", "About me", "Insurance", "Requirements", "Meeting", "Location"],
+        startKicker: "Start here",
+        startTitle: "Choose how you want to move forward.",
+        startCopy: "If you are in a hurry, message me. If you prefer to review it calmly, schedule a meeting.",
+        actionTitles: ["Quote now", "Schedule meeting", "Visit me"],
+        actionCopies: ["Tell me what you want to insure and I will ask only for what is needed.", "We can coordinate a call or an in-person meeting.", "I am available at Porsche Center Santo Domingo by appointment."],
+        actionButtons: ["WhatsApp", "See options", "View map"],
+        segurosTitle: "Explore before messaging me.",
+        segurosCopy: "Tap an insurance type to see what it may cover, what data is needed, and how to proceed.",
+        coverLabel: "May cover",
+        reqLabel: "To quote",
+        quoteThis: "Quote this insurance",
+        seeReq: "See requirements"
+      }
+    };
+    const INSURANCE_DETAILS = {
+      es: {
+      auto: {
+        kicker: "Seguro de auto",
+        label: "Auto",
+        title: "Muévete con respaldo y claridad.",
+        summary: "Ideal para proteger tu vehículo, cumplir requisitos de circulación y tener una ruta clara si ocurre un accidente.",
+        coverage: ["Daños propios según la cobertura elegida.", "Responsabilidad civil frente a terceros.", "Robo, incendio o asistencia según el plan."],
+        requirements: ["Marca, modelo y año.", "Uso del vehículo.", "Datos del titular."]
+      },
+      salud: {
+        kicker: "Seguro de salud",
+        label: "Salud",
+        title: "Atención médica con más tranquilidad.",
+        summary: "Para personas, familias o equipos que quieren organizar su acceso a servicios médicos con mejor previsión.",
+        coverage: ["Consultas, emergencias y hospitalización según plan.", "Cobertura local o internacional según opción.", "Dependientes y familiares si aplica."],
+        requirements: ["Edad de las personas a asegurar.", "Cantidad de dependientes.", "Preferencia de cobertura o presupuesto."]
+      },
+      hogar: {
+        kicker: "Seguro de hogar",
+        label: "Hogar",
+        title: "Protege tu espacio y lo que has construido.",
+        summary: "Pensado para viviendas, apartamentos y contenido del hogar, con una gestión clara de riesgos principales.",
+        coverage: ["Incendio, daños por agua o eventos cubiertos.", "Contenido del hogar según declaración.", "Responsabilidad civil familiar si aplica."],
+        requirements: ["Ubicación del inmueble.", "Tipo de propiedad.", "Valor aproximado de vivienda y contenido."]
+      },
+      vida: {
+        kicker: "Seguro de vida",
+        label: "Vida",
+        title: "Una decisión responsable para quienes dependen de ti.",
+        summary: "Ayuda a dejar una protección económica organizada para familia, socios o compromisos importantes.",
+        coverage: ["Beneficio por fallecimiento.", "Opciones con ahorro o protección pura según disponibilidad.", "Coberturas adicionales según perfil."],
+        requirements: ["Edad y ocupación.", "Monto de cobertura deseado.", "Beneficiarios o propósito de protección."]
+      },
+      viajes: {
+        kicker: "Seguro de viajes",
+        label: "Viajes",
+        title: "Viaja con una respuesta lista si algo pasa.",
+        summary: "Útil para viajes familiares, ejecutivos o personales donde necesitas asistencia médica y soporte fuera del país.",
+        coverage: ["Emergencias médicas en viaje.", "Asistencia por equipaje o demoras según plan.", "Requisitos de países o visados si aplica."],
+        requirements: ["Destino y fechas.", "Cantidad de viajeros.", "Edades de los viajeros."]
+      },
+      negocios: {
+        kicker: "Seguro comercial",
+        label: "Negocios",
+        title: "Protección para operar con más control.",
+        summary: "Para empresas, locales, activos, responsabilidad y continuidad operativa según el tipo de negocio.",
+        coverage: ["Propiedad, equipos o inventario.", "Responsabilidad civil.", "Coberturas comerciales según actividad."],
+        requirements: ["RNC o datos de empresa.", "Actividad comercial.", "Activos o riesgos a proteger."]
+      },
+      premium: {
+        kicker: "Vehículo premium",
+        label: "Vehículo premium",
+        title: "Un auto especial merece una gestión especial.",
+        summary: "Para vehículos de alto valor donde importan el detalle, la rapidez y una explicación fina de condiciones.",
+        coverage: ["Daños propios y terceros según plan.", "Robo, incendio y asistencia según opción.", "Evaluación de deducibles y condiciones relevantes."],
+        requirements: ["Marca, modelo, año y versión.", "Valor aproximado o factura si la tienes.", "Uso y datos del titular."]
+      }
+      },
+      en: {
+        auto: {
+          kicker: "Auto insurance",
+          label: "Auto",
+          title: "Drive with backup and clarity.",
+          summary: "Ideal for protecting your vehicle, meeting circulation requirements, and having a clear path if an accident happens.",
+          coverage: ["Own damage depending on selected coverage.", "Third-party liability.", "Theft, fire, or assistance depending on plan."],
+          requirements: ["Make, model, and year.", "Vehicle use.", "Owner information."]
+        },
+        salud: {
+          kicker: "Health insurance",
+          label: "Health",
+          title: "Medical access with more peace of mind.",
+          summary: "For individuals, families, or teams who want to organize healthcare access with better planning.",
+          coverage: ["Consultations, emergencies, and hospitalization by plan.", "Local or international coverage by option.", "Dependents and family if applicable."],
+          requirements: ["Ages of people to insure.", "Number of dependents.", "Coverage preference or budget."]
+        },
+        hogar: {
+          kicker: "Home insurance",
+          label: "Home",
+          title: "Protect your space and what you have built.",
+          summary: "Designed for houses, apartments, and household contents with clear management of main risks.",
+          coverage: ["Fire, water damage, or covered events.", "Home contents based on declaration.", "Family liability if applicable."],
+          requirements: ["Property location.", "Type of property.", "Approximate home and contents value."]
+        },
+        vida: {
+          kicker: "Life insurance",
+          label: "Life",
+          title: "A responsible decision for those who depend on you.",
+          summary: "Helps organize economic protection for family, partners, or important commitments.",
+          coverage: ["Death benefit.", "Savings or pure protection options depending on availability.", "Additional coverages depending on profile."],
+          requirements: ["Age and occupation.", "Desired coverage amount.", "Beneficiaries or protection purpose."]
+        },
+        viajes: {
+          kicker: "Travel insurance",
+          label: "Travel",
+          title: "Travel with support ready if something happens.",
+          summary: "Useful for family, executive, or personal trips where medical assistance and support abroad matter.",
+          coverage: ["Travel medical emergencies.", "Baggage or delay assistance depending on plan.", "Country or visa requirements if applicable."],
+          requirements: ["Destination and dates.", "Number of travelers.", "Travelers' ages."]
+        },
+        negocios: {
+          kicker: "Business insurance",
+          label: "Business",
+          title: "Protection to operate with more control.",
+          summary: "For companies, locations, assets, liability, and operational continuity depending on business type.",
+          coverage: ["Property, equipment, or inventory.", "Civil liability.", "Commercial coverages according to activity."],
+          requirements: ["Company data or RNC.", "Business activity.", "Assets or risks to protect."]
+        },
+        premium: {
+          kicker: "Premium vehicle",
+          label: "Premium vehicle",
+          title: "A special car deserves special handling.",
+          summary: "For high-value vehicles where detail, speed, and a refined explanation of conditions matter.",
+          coverage: ["Own damage and third parties depending on plan.", "Theft, fire, and assistance depending on option.", "Review of deductibles and key conditions."],
+          requirements: ["Make, model, year, and version.", "Approximate value or invoice if available.", "Use and owner information."]
+        }
+      }
+    };
 
     function initialsFromName(name) {
       const parts = clean(name).split(/\s+/).filter(Boolean);
@@ -1407,7 +2245,27 @@
         el.href = AGENT.instagramUrl;
       });
       qsa("[data-agent-location]").forEach((el) => { el.textContent = AGENT.location; });
-      qsa(".js-whatsapp").forEach((el) => { el.href = whatsappUrl(); });
+      qsa(".js-whatsapp").forEach((el) => { el.href = whatsappUrl(UI_TEXT[currentLang].whatsappDefault); });
+      qsa(".js-whatsapp-topic").forEach((el) => {
+        const topic = el.dataset.topic || "seguro";
+        const message = currentLang === "en"
+          ? `Hi Jacinto, I want to quote ${topic} insurance.`
+          : `Hola Jacinto, quiero cotizar un seguro de ${topic}.`;
+        el.href = whatsappUrl(message);
+      });
+      qsa(".js-whatsapp-kyc").forEach((el) => {
+        const kyc = el.dataset.kyc || "cliente";
+        const message = currentLang === "en"
+          ? `Hi Jacinto, I want to move forward as ${kyc}. Can you help me with the Know Your Customer form?`
+          : `Hola Jacinto, quiero avanzar como ${kyc}. ¿Me ayudas con el formulario Conoce tu Cliente?`;
+        el.href = whatsappUrl(message);
+      });
+      qsa(".js-appointment").forEach((el) => {
+        const message = currentLang === "en"
+          ? "Hi Jacinto, I want to schedule a visit at Porsche Center Santo Domingo to review insurance options."
+          : "Hola Jacinto, quiero agendar una visita en Porsche Center Santo Domingo para revisar opciones de seguro.";
+        el.href = whatsappUrl(message);
+      });
 
       const photo = qs("#agentPhoto");
       const fallback = qs("#photoFallback");
@@ -1460,21 +2318,161 @@
         event.preventDefault();
         const form = new FormData(event.currentTarget);
         const message = [
-          "Hola, quiero cotizar un seguro.",
+          currentLang === "en" ? "Hi Jacinto, I want to move forward with insurance." : "Hola Jacinto, quiero avanzar con un seguro.",
           "",
-          `Nombre: ${clean(form.get("name"))}`,
-          `Teléfono: ${clean(form.get("phone"))}`,
-          `Tipo de seguro: ${clean(form.get("insurance"))}`,
-          `Vehículo: ${clean(form.get("vehicle")) || "No especificado"}`,
-          `Año: ${clean(form.get("year")) || "No especificado"}`
+          `${currentLang === "en" ? "Name" : "Nombre"}: ${clean(form.get("name"))}`,
+          `${currentLang === "en" ? "Phone" : "Teléfono"}: ${clean(form.get("phone"))}`,
+          `${currentLang === "en" ? "Need" : "Necesidad"}: ${clean(form.get("insurance"))}`,
+          `${currentLang === "en" ? "Preference" : "Preferencia"}: ${clean(form.get("meeting")) || "WhatsApp"}`,
+          `${currentLang === "en" ? "Details" : "Detalle"}: ${clean(form.get("vehicle")) || (currentLang === "en" ? "Not specified" : "No especificado")}`,
+          `${currentLang === "en" ? "Year" : "Año"}: ${clean(form.get("year")) || (currentLang === "en" ? "Not specified" : "No especificado")}`
         ].join("\n");
         window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
       });
     }
 
+    function setupTabs() {
+      const buttons = qsa(".tab-button");
+      const panels = qsa(".tab-panel");
+      const activate = (tabName) => {
+        buttons.forEach((button) => {
+          const active = button.dataset.tab === tabName;
+          button.setAttribute("aria-selected", String(active));
+          if (active) {
+            button.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+          }
+        });
+        panels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.id === `panel-${tabName}`);
+        });
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => activate(button.dataset.tab));
+      });
+      qsa(".tab-jump").forEach((jump) => {
+        jump.addEventListener("click", (event) => {
+          event.preventDefault();
+          activate(jump.dataset.tabTarget);
+          qs(".workspace-card")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    }
+
+    function setupInsuranceExplorer() {
+      const buttons = qsa(".insurance-option");
+      const detail = qs("#insuranceDetail");
+      if (!buttons.length || !detail) return;
+
+      const render = (key) => {
+        currentInsurance = key;
+        const item = INSURANCE_DETAILS[currentLang][key] || INSURANCE_DETAILS[currentLang].auto;
+        detail.classList.add("is-changing");
+        window.setTimeout(() => detail.classList.remove("is-changing"), 180);
+        qs("#insuranceKicker").textContent = item.kicker;
+        qs("#insuranceTitle").textContent = item.title;
+        qs("#insuranceSummary").textContent = item.summary;
+        qs("#coverageList").innerHTML = item.coverage.map((text) => `<li>${text}</li>`).join("");
+        qs("#requirementsList").innerHTML = item.requirements.map((text) => `<li>${text}</li>`).join("");
+        qs("#insuranceWhatsapp").href = whatsappUrl(`${UI_TEXT[currentLang].quotePrefix} ${item.kicker.toLowerCase()}.`);
+        buttons.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.insurance === key);
+        });
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => render(button.dataset.insurance));
+      });
+      render("auto");
+    }
+
+    function updateStaticLanguage() {
+      const text = UI_TEXT[currentLang];
+      qs("#heroTitle").textContent = text.heroTitle;
+      qs("#heroLead").textContent = text.heroLead;
+      qs("#heroWhatsapp").textContent = text.heroWhatsapp;
+      qs("#heroAppointment").textContent = text.heroAppointment;
+      qs("#builderTitle").textContent = text.builderTitle;
+      qs("#builderCopy").textContent = text.builderCopy;
+      qs("#quickMessage").textContent = text.quickButton;
+      document.documentElement.lang = currentLang === "en" ? "en" : "es-DO";
+      qsa(".tab-button").forEach((button, index) => {
+        if (text.tabs[index]) button.textContent = text.tabs[index];
+      });
+      const startPanel = qs("#panel-inicio");
+      if (startPanel) {
+        startPanel.querySelector(".panel-kicker").textContent = text.startKicker;
+        startPanel.querySelector("h2").textContent = text.startTitle;
+        startPanel.querySelector(".panel-inner > p").textContent = text.startCopy;
+        qsa(".action-card", startPanel).forEach((card, index) => {
+          card.querySelector("strong").textContent = text.actionTitles[index];
+          card.querySelector("p").textContent = text.actionCopies[index];
+          const action = card.querySelector(".btn");
+          if (action) action.textContent = text.actionButtons[index];
+        });
+      }
+      const segurosPanel = qs("#panel-seguros");
+      if (segurosPanel) {
+        segurosPanel.querySelector("h2").textContent = text.segurosTitle;
+        segurosPanel.querySelector(".panel-inner > p").textContent = text.segurosCopy;
+      }
+      qsa(".insurance-option").forEach((button) => {
+        const item = INSURANCE_DETAILS[currentLang][button.dataset.insurance];
+        if (item) button.textContent = item.label;
+      });
+      qs("#coverLabel").textContent = text.coverLabel;
+      qs("#reqLabel").textContent = text.reqLabel;
+      qs("#insuranceWhatsapp").textContent = text.quoteThis;
+      qs("#insuranceReqButton").textContent = text.seeReq;
+      qs("#langEs").classList.toggle("is-active", currentLang === "es");
+      qs("#langEn").classList.toggle("is-active", currentLang === "en");
+      hydrateAgentData();
+      setupQuickBuilder();
+      const item = INSURANCE_DETAILS[currentLang][currentInsurance] || INSURANCE_DETAILS[currentLang].auto;
+      qs("#insuranceKicker").textContent = item.kicker;
+      qs("#insuranceTitle").textContent = item.title;
+      qs("#insuranceSummary").textContent = item.summary;
+      qs("#coverageList").innerHTML = item.coverage.map((line) => `<li>${line}</li>`).join("");
+      qs("#requirementsList").innerHTML = item.requirements.map((line) => `<li>${line}</li>`).join("");
+      qs("#insuranceWhatsapp").href = whatsappUrl(`${text.quotePrefix} ${item.kicker.toLowerCase()}.`);
+    }
+
+    function setupPreferences() {
+      qs("#langEs").addEventListener("click", () => {
+        currentLang = "es";
+        updateStaticLanguage();
+      });
+      qs("#langEn").addEventListener("click", () => {
+        currentLang = "en";
+        updateStaticLanguage();
+      });
+    }
+
+    function setupQuickBuilder() {
+      const need = qs("#quickNeed");
+      const when = qs("#quickWhen");
+      const how = qs("#quickHow");
+      const link = qs("#quickMessage");
+      if (!need || !when || !how || !link) return;
+      const update = () => {
+        const message = currentLang === "en"
+          ? `Hi Jacinto, I want help with ${need.value}. Timing: ${when.value}. I prefer: ${how.value}.`
+          : `Hola Jacinto, quiero ayuda con ${need.value}. Tiempo: ${when.value}. Prefiero: ${how.value}.`;
+        link.href = whatsappUrl(message);
+      };
+      [need, when, how].forEach((el) => {
+        el.onchange = update;
+      });
+      update();
+    }
+
     hydrateAgentData();
     setupScrollEffects();
     setupQuoteForm();
+    setupTabs();
+    setupInsuranceExplorer();
+    setupPreferences();
+    setupQuickBuilder();
   </script>
 </body>
 </html>
