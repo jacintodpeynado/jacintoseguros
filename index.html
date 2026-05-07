@@ -616,9 +616,30 @@
       gap: 10px;
     }
     .utility-row {
+      display: grid;
+      gap: 10px;
+      justify-items: start;
+    }
+    .language-switch {
       display: flex;
+      align-items: center;
       gap: 8px;
       flex-wrap: wrap;
+    }
+    .utility-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .language-options {
+      display: flex;
+      gap: 4px;
+      padding: 3px;
+      border: 1px solid rgba(11,47,85,.12);
+      border-radius: 999px;
+      background: #f2f4f7;
     }
     .utility-pill {
       min-height: 34px;
@@ -632,6 +653,14 @@
       font-size: 12px;
       transition: background .2s ease, transform .2s ease, border-color .2s ease;
       -webkit-tap-highlight-color: transparent;
+    }
+    .language-options .utility-pill {
+      min-height: 30px;
+      border-color: transparent;
+      background: transparent;
+    }
+    .contact-save {
+      box-shadow: 0 10px 24px rgba(7,26,51,.06);
     }
     .utility-pill:hover {
       transform: translateY(-1px);
@@ -1742,9 +1771,14 @@
         </div>
         <span class="eyebrow">Santo Domingo</span>
         <div class="utility-row" aria-label="Preferencias">
-          <button class="utility-pill is-active" type="button" id="langEs">ES</button>
-          <button class="utility-pill" type="button" id="langEn">EN</button>
-          <a class="utility-pill" href="jacinto-daniel-peynado.vcf" download>Guardar contacto</a>
+          <div class="language-switch" role="group" aria-labelledby="languageLabel">
+            <span class="utility-label" id="languageLabel">Idioma</span>
+            <div class="language-options">
+              <button class="utility-pill is-active" type="button" id="langEs">Español</button>
+              <button class="utility-pill" type="button" id="langEn">English</button>
+            </div>
+          </div>
+          <button class="utility-pill contact-save" type="button" id="saveContactButton">Guardar contacto</button>
         </div>
         <h1 id="heroTitle">Seguro claro. Atención directa.</h1>
         <p class="lead" id="heroLead">Cotiza, agenda una cita o visítame en Porsche Center Santo Domingo. Te ayudo a elegir sin complicarte.</p>
@@ -2063,6 +2097,8 @@
         heroLead: "Cotiza, agenda una cita o visítame en Porsche Center Santo Domingo. Te ayudo a elegir sin complicarte.",
         heroWhatsapp: "Escribir por WhatsApp",
         heroAppointment: "Agendar cita",
+        languageLabel: "Idioma",
+        saveContact: "Guardar contacto",
         builderTitle: "Arma tu mensaje en 10 segundos.",
         builderCopy: "Elige lo básico y abre WhatsApp con un mensaje más claro.",
         quickButton: "Preparar WhatsApp",
@@ -2098,6 +2134,8 @@
         heroLead: "Quote, schedule a meeting, or visit me at Porsche Center Santo Domingo. I will help you choose without complications.",
         heroWhatsapp: "Message on WhatsApp",
         heroAppointment: "Schedule meeting",
+        languageLabel: "Language",
+        saveContact: "Save contact",
         builderTitle: "Build your message in 10 seconds.",
         builderCopy: "Choose the basics and open WhatsApp with a clearer message.",
         quickButton: "Prepare WhatsApp",
@@ -2415,12 +2453,56 @@
       select.selectedIndex = Math.min(selectedIndex, options.length - 1);
     }
 
+    function contactCardText() {
+      return [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "N:Peynado;Jacinto;Daniel;;;",
+        `FN:${AGENT.name}`,
+        "ORG:La Colonial Seguros",
+        `TITLE:${AGENT.role}`,
+        `TEL;TYPE=CELL,VOICE:+${AGENT.whatsappNumber}`,
+        `EMAIL:${AGENT.email}`,
+        "ADR;TYPE=WORK:;;Av. Simon Bolivar 965;Santo Domingo;;10108;Dominican Republic",
+        "NOTE:Agente de Seguros La Colonial. Atencion por WhatsApp y citas en Porsche Center Santo Domingo.",
+        "END:VCARD"
+      ].join("\n");
+    }
+
+    function setupContactSave() {
+      const button = qs("#saveContactButton");
+      if (!button) return;
+
+      button.addEventListener("click", () => {
+        const fileUrl = new URL("jacinto-daniel-peynado.vcf", window.location.href).href;
+        const isAppleTouch = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+          (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+        if (isAppleTouch || window.location.protocol === "file:") {
+          window.location.href = fileUrl;
+          return;
+        }
+
+        const blob = new Blob([contactCardText()], { type: "text/vcard;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "jacinto-daniel-peynado.vcf";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 800);
+      });
+    }
+
     function updateStaticLanguage() {
       const text = UI_TEXT[currentLang];
       qs("#heroTitle").textContent = text.heroTitle;
       qs("#heroLead").textContent = text.heroLead;
       qs("#heroWhatsapp").textContent = text.heroWhatsapp;
       qs("#heroAppointment").textContent = text.heroAppointment;
+      qs("#languageLabel").textContent = text.languageLabel;
+      qs("#saveContactButton").textContent = text.saveContact;
       qs("#builderTitle").textContent = text.builderTitle;
       qs("#builderCopy").textContent = text.builderCopy;
       qs("#quickMessage").textContent = text.quickButton;
@@ -2519,6 +2601,7 @@
     setupTabs();
     setupInsuranceExplorer();
     setupPreferences();
+    setupContactSave();
     setupQuickBuilder();
   </script>
 </body>
