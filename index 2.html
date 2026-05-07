@@ -1,0 +1,1480 @@
+<!doctype html>
+<html lang="es-DO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8fa">
+  <meta name="color-scheme" content="light">
+  <title>Jacinto Daniel Peynado | Agente de Seguros La Colonial</title>
+  <meta name="description" content="Cotiza seguros con Jacinto Daniel Peynado. Atención directa por WhatsApp para autos, salud, hogar, vida, viajes, negocios y vehículos premium.">
+
+  <!-- Open Graph / WhatsApp. Cambia og:image por una imagen pública cuando publiques la web. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_DO">
+  <meta property="og:title" content="Jacinto Daniel Peynado | Seguros La Colonial">
+  <meta property="og:description" content="Cotizaciones rápidas, emisión de pólizas y seguimiento personalizado por WhatsApp.">
+  <meta property="og:image" content="https://placehold.co/1200x630/071a33/f5f1e8?text=Seguros+Premium+La+Colonial">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    :root {
+      --navy: #071a33;
+      --navy-2: #0c2748;
+      --ink: #172033;
+      --muted: #697386;
+      --line: #e7eaf0;
+      --soft: #f5f7fa;
+      --white: #ffffff;
+      --gold: #b99b5f;
+      --gold-2: #e8dcc2;
+      --red: #a72332;
+      --whatsapp: #168c4a;
+      --radius: 8px;
+      --shadow: 0 24px 70px rgba(7, 26, 51, .11);
+      --header: 72px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fbfcfd;
+      font-size: 16px;
+      line-height: 1.55;
+      letter-spacing: 0;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(110deg, rgba(7,26,51,.06), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8fa 42%, #ffffff 100%);
+      pointer-events: none;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select { font: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: currentColor;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      max-width: 760px;
+      font-size: clamp(48px, 11vw, 88px);
+      line-height: .93;
+      letter-spacing: 0;
+      color: var(--navy);
+      font-weight: 760;
+    }
+    h2 {
+      max-width: 720px;
+      font-size: clamp(32px, 6.2vw, 58px);
+      line-height: 1;
+      color: var(--navy);
+      font-weight: 730;
+    }
+    h3 {
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.2;
+      font-weight: 720;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 23px);
+      line-height: 1.45;
+    }
+    .section {
+      padding: 96px 0;
+    }
+    .section-head {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      padding-top: env(safe-area-inset-top);
+      transition: background .35s ease, border-color .35s ease, backdrop-filter .35s ease, box-shadow .35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .site-header.is-scrolled {
+      background: rgba(255,255,255,.78);
+      border-color: rgba(231,234,240,.9);
+      box-shadow: 0 10px 36px rgba(7, 26, 51, .06);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .nav {
+      height: var(--header);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(185,155,95,.55);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      background: rgba(255,255,255,.64);
+      font-weight: 780;
+      font-size: 13px;
+      letter-spacing: .04em;
+    }
+    .brand-text {
+      display: grid;
+      line-height: 1.05;
+    }
+    .brand-text strong {
+      color: var(--navy);
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 210px;
+    }
+    .brand-text span {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: rgba(23,32,51,.76);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .nav-links a {
+      position: relative;
+      padding: 10px 0;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 4px;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .28s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      padding: 0 20px;
+      cursor: pointer;
+      font-weight: 720;
+      font-size: 15px;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease, color .25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn svg { width: 18px; height: 18px; stroke-width: 1.9; }
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(7,26,51,.17);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #0a2342;
+      box-shadow: 0 20px 44px rgba(7,26,51,.23);
+    }
+    .btn-secondary {
+      color: var(--navy);
+      border-color: rgba(7,26,51,.14);
+      background: rgba(255,255,255,.66);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(185,155,95,.55);
+      box-shadow: 0 14px 32px rgba(7,26,51,.09);
+    }
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(22,140,74,.22);
+    }
+
+    .hero {
+      min-height: 100svh;
+      padding: calc(var(--header) + env(safe-area-inset-top) + 34px) 0 70px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 30%;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.92));
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .78fr);
+      gap: 54px;
+      align-items: center;
+    }
+    .hero-copy {
+      display: grid;
+      gap: 24px;
+    }
+    .identity {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .identity span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(231,234,240,.95);
+      border-radius: 999px;
+      background: rgba(255,255,255,.64);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 690;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .trust-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .trust-item {
+      display: grid;
+      gap: 2px;
+    }
+    .trust-item strong {
+      color: var(--navy);
+      font-size: 19px;
+    }
+    .trust-item span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .mobile-proof {
+      display: none;
+      gap: 10px;
+    }
+    .mobile-proof span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      width: fit-content;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(185,155,95,.28);
+      background: rgba(255,255,255,.72);
+      color: #304059;
+      font-size: 13px;
+      font-weight: 680;
+    }
+    .advisor-panel {
+      position: relative;
+      display: grid;
+      gap: 22px;
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(7,26,51,.1);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.95), rgba(247,249,252,.88)),
+        #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .advisor-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), rgba(185,155,95,.12));
+    }
+    .advisor-panel::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -110px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 1px solid rgba(185,155,95,.22);
+      background: rgba(185,155,95,.06);
+      z-index: -1;
+    }
+    .advisor-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .advisor-mark {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(185,155,95,.55);
+      color: var(--navy);
+      background: #fff;
+      font-size: 18px;
+      font-weight: 790;
+    }
+    .advisor-top strong {
+      display: block;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.15;
+    }
+    .advisor-top span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .advisor-statement {
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .advisor-statement p {
+      color: var(--navy);
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.08;
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+    .advisor-statement span {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .advisor-list {
+      display: grid;
+      gap: 12px;
+    }
+    .advisor-list span {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      color: #3f495b;
+      font-size: 15px;
+    }
+    .advisor-list svg {
+      flex: 0 0 18px;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+    .advisor-panel .btn {
+      width: 100%;
+    }
+    .portrait-panel {
+      position: relative;
+      min-height: 600px;
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(165deg, rgba(7,26,51,.02), rgba(185,155,95,.12)),
+        #f1f3f6;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.78);
+      isolation: isolate;
+    }
+    .portrait-panel::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(185,155,95,.28);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .portrait-panel img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(.96) contrast(1.02);
+    }
+    .portrait-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 42px;
+      text-align: center;
+      color: var(--navy);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.84), rgba(245,247,250,.72)),
+        radial-gradient(circle at 80% 10%, rgba(185,155,95,.22), transparent 34%);
+    }
+    .portrait-fallback > div {
+      transform: translateY(-56px);
+    }
+    .portrait-fallback .initials {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      border: 1px solid rgba(185,155,95,.52);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 22px;
+      font-size: 38px;
+      font-weight: 760;
+      background: rgba(255,255,255,.72);
+    }
+    .portrait-fallback p {
+      color: var(--muted);
+      max-width: 280px;
+    }
+    .portrait-caption {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      bottom: 32px;
+      z-index: 3;
+      display: grid;
+      gap: 6px;
+      padding: 20px;
+      color: #fff;
+      background: rgba(7,26,51,.78);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .portrait-caption strong { font-size: 18px; }
+    .portrait-caption span { color: rgba(255,255,255,.74); font-size: 14px; }
+
+    .about {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .about-copy {
+      display: grid;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .signature-card {
+      display: grid;
+      gap: 22px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff, #fafbfc);
+    }
+    .signature-card .line {
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .check-list {
+      display: grid;
+      gap: 14px;
+      color: var(--ink);
+    }
+    .check-list span {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #394153;
+    }
+    .check-list svg {
+      flex: 0 0 18px;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid.cols-3 { grid-template-columns: repeat(4, 1fr); }
+    .card {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      min-height: 190px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.78);
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
+      overflow: hidden;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .28s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(185,155,95,.45);
+      box-shadow: 0 18px 46px rgba(7,26,51,.09);
+      background: #fff;
+    }
+    .card:hover::after { transform: scaleX(1); }
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--navy);
+      background: #f2f5f8;
+      border: 1px solid rgba(231,234,240,.9);
+    }
+    .icon svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.65;
+    }
+    .card p, .benefit p, .testimonial p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .benefits {
+      background: linear-gradient(180deg, #f8fafc, #fff);
+    }
+    .benefit {
+      min-height: 160px;
+      padding: 22px;
+    }
+
+    .process {
+      background: var(--navy);
+      color: #fff;
+    }
+    .process h2 { color: #fff; }
+    .process .lead { color: rgba(255,255,255,.68); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .step {
+      padding: 32px 24px;
+      background: rgba(255,255,255,.045);
+      min-height: 220px;
+      display: grid;
+      align-content: space-between;
+      gap: 22px;
+    }
+    .step .num {
+      color: var(--gold-2);
+      font-size: 13px;
+      font-weight: 780;
+      letter-spacing: .1em;
+    }
+    .step h3 { color: #fff; }
+    .step p { color: rgba(255,255,255,.68); font-size: 15px; }
+
+    .premium-strip {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(115deg, rgba(7,26,51,.97), rgba(12,39,72,.92)),
+        var(--navy);
+      color: #fff;
+      padding: 78px 0;
+    }
+    .premium-strip::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 88px 100%;
+      opacity: .4;
+    }
+    .premium-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: end;
+    }
+    .premium-content h2 { color: #fff; }
+    .premium-content p {
+      max-width: 670px;
+      margin-top: 18px;
+      color: rgba(255,255,255,.72);
+      font-size: 19px;
+    }
+    .badge-stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .badge {
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 690;
+    }
+
+    .testimonials {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .testimonial {
+      min-height: 176px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      display: grid;
+      gap: 18px;
+    }
+    .stars {
+      color: var(--gold);
+      letter-spacing: .05em;
+      font-size: 13px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+      max-width: 860px;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      overflow: hidden;
+    }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 22px;
+      color: var(--navy);
+      font-weight: 720;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      color: var(--gold);
+      font-size: 22px;
+      line-height: 1;
+    }
+    details[open] summary::after { content: "−"; }
+    details p {
+      padding: 0 22px 22px;
+      color: var(--muted);
+    }
+
+    .quote {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .form {
+      display: grid;
+      gap: 14px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+      box-shadow: 0 18px 52px rgba(7,26,51,.07);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+    label {
+      color: #465065;
+      font-size: 13px;
+      font-weight: 690;
+    }
+    input, select {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid #dfe4ec;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 0 14px;
+      color: var(--navy);
+      outline: 0;
+      transition: border-color .22s ease, box-shadow .22s ease;
+    }
+    input:focus, select:focus {
+      border-color: rgba(185,155,95,.72);
+      box-shadow: 0 0 0 4px rgba(185,155,95,.12);
+    }
+    .form .btn {
+      width: 100%;
+      margin-top: 6px;
+    }
+
+    .final-cta {
+      padding: 96px 0;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.8), rgba(247,248,250,.94)),
+        #fff;
+    }
+    .final-cta .wrap {
+      display: grid;
+      gap: 24px;
+      justify-items: center;
+    }
+    .final-cta h2 { max-width: 820px; }
+    .final-cta .btn {
+      min-height: 58px;
+      padding: 0 28px;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 34px 0 calc(34px + env(safe-area-inset-bottom));
+      color: var(--muted);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, auto);
+      gap: 28px;
+      align-items: start;
+    }
+    footer strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 7px;
+    }
+    footer a:hover { color: var(--navy); }
+
+    .float-whatsapp {
+      position: fixed;
+      right: max(18px, env(safe-area-inset-right));
+      bottom: max(18px, env(safe-area-inset-bottom));
+      z-index: 50;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--whatsapp);
+      box-shadow: 0 18px 44px rgba(22,140,74,.28);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .float-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 54px rgba(22,140,74,.34);
+    }
+    .float-whatsapp svg { width: 26px; height: 26px; }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+    .animations-ready .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+      transition-delay: var(--delay, 0ms);
+    }
+    .animations-ready .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero {
+        padding-top: calc(var(--header) + env(safe-area-inset-top) + 22px);
+      }
+      .hero-grid,
+      .about-grid,
+      .quote-grid,
+      .premium-content {
+        grid-template-columns: 1fr;
+      }
+      .portrait-panel {
+        min-height: 520px;
+      }
+      .grid.cols-4,
+      .grid.cols-3,
+      .testimonials,
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .premium-content { align-items: start; }
+      .badge-stack { justify-content: flex-start; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      :root { --header: 64px; }
+      .wrap {
+        width: min(100% - 32px, 1120px);
+      }
+      .section { padding: 62px 0; }
+      .section-head { margin-bottom: 28px; }
+      .site-header {
+        position: relative;
+        padding-top: calc(env(safe-area-inset-top) + 94px);
+        background: transparent;
+        border-bottom: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .site-header.is-scrolled {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .nav {
+        height: auto;
+        padding: 0;
+      }
+      .brand-text strong { max-width: 170px; }
+      .nav-cta { display: none; }
+      h1 {
+        max-width: 11ch;
+        font-size: clamp(40px, 11.2vw, 52px);
+        line-height: .98;
+      }
+      h2 {
+        font-size: clamp(28px, 8vw, 38px);
+        line-height: 1.06;
+      }
+      .lead {
+        font-size: 18px;
+        line-height: 1.45;
+      }
+      .hero {
+        min-height: auto;
+        padding-top: 30px;
+        padding-bottom: 48px;
+        align-items: start;
+      }
+      .hero::after { display: none; }
+      .hero-grid { gap: 24px; }
+      .hero-copy { gap: 18px; }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: .1em;
+      }
+      .identity { display: none; }
+      .mobile-proof {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .btn { width: 100%; }
+      .portrait-panel {
+        min-height: 430px;
+      }
+      .portrait-panel::before { inset: 12px; }
+      .portrait-caption {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+      }
+      .trust-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 4px;
+        padding-top: 18px;
+      }
+      .trust-item strong { font-size: 17px; }
+      .trust-item span {
+        font-size: 12px;
+        line-height: 1.25;
+      }
+      .advisor-panel {
+        padding: 22px;
+        gap: 18px;
+      }
+      .advisor-statement p {
+        font-size: 25px;
+      }
+      .grid.cols-4,
+      .grid.cols-3,
+      .testimonials,
+      .steps,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        padding: 20px;
+        gap: 14px;
+      }
+      .card p, .benefit p, .testimonial p {
+        font-size: 16px;
+      }
+      .card, .benefit {
+        min-height: auto;
+      }
+      .process {
+        background: #071a33;
+      }
+      .step {
+        min-height: auto;
+        padding: 26px 22px;
+      }
+      .premium-strip,
+      .final-cta { padding: 72px 0; }
+      .form { padding: 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .float-whatsapp {
+        width: 58px;
+        height: 58px;
+        right: max(18px, env(safe-area-inset-right));
+        bottom: calc(max(18px, env(safe-area-inset-bottom)) + 64px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(8px);
+      }
+      .float-whatsapp.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .animations-ready .reveal,
+      .animations-ready .reveal.in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    CONFIGURACIÓN RÁPIDA
+    Cambia estos datos en el bloque JS al final:
+    AGENT.name, AGENT.role, AGENT.phoneDisplay, AGENT.whatsappNumber,
+    AGENT.email, AGENT.instagram, AGENT.location, AGENT.photoUrl.
+  -->
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Inicio">
+        <span class="brand-mark" data-initials>LC</span>
+        <span class="brand-text">
+          <strong data-agent-name>Jacinto Daniel Peynado</strong>
+          <span>Agente de Seguros · La Colonial</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#seguros">Seguros</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#cotizar">Cotizar</a>
+      </nav>
+      <a class="btn btn-secondary nav-cta js-whatsapp" href="#" aria-label="Cotizar por WhatsApp">
+        Cotizar
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow reveal">La Colonial · República Dominicana</span>
+          <div class="reveal" style="--delay: 70ms">
+            <h1>Protegiendo lo que más valoras.</h1>
+          </div>
+          <p class="lead reveal" style="--delay: 140ms">Cotizaciones, emisión de pólizas y seguimiento personalizado con respuesta directa por WhatsApp.</p>
+          <div class="identity reveal" style="--delay: 190ms">
+            <span data-agent-name>Jacinto Daniel Peynado</span>
+            <span>Agente de Seguros</span>
+            <span>Atención concierge</span>
+          </div>
+          <div class="mobile-proof reveal" style="--delay: 215ms" aria-label="Servicios principales">
+            <span>Autos</span>
+            <span>Salud</span>
+            <span>Hogar</span>
+            <span>Vida</span>
+          </div>
+          <div class="hero-actions reveal" style="--delay: 240ms">
+            <a class="btn btn-primary js-whatsapp" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8.5 11.3c.9 1.8 2.4 3.2 4.2 4.2l1.4-1.4c.2-.2.5-.3.8-.2.9.3 1.8.4 2.8.4.4 0 .7.3.7.7v2.3c0 .4-.3.7-.7.7A12.7 12.7 0 0 1 5 5.3c0-.4.3-.7.7-.7H8c.4 0 .7.3.7.7 0 1 .1 1.9.4 2.8.1.3 0 .6-.2.8l-1.4 1.4Z"/></svg>
+              Cotizar por WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#seguros">Ver tipos de seguros</a>
+          </div>
+          <div class="trust-row reveal" style="--delay: 310ms" aria-label="Indicadores de confianza">
+            <div class="trust-item"><strong>24h</strong><span>seguimiento ágil</span></div>
+            <div class="trust-item"><strong>1:1</strong><span>servicio directo</span></div>
+            <div class="trust-item"><strong>SDQ</strong><span>Santo Domingo</span></div>
+          </div>
+        </div>
+
+        <aside class="advisor-panel reveal" style="--delay: 120ms" aria-label="Resumen de servicio premium">
+          <div class="advisor-top">
+            <div class="advisor-mark" data-initials>JD</div>
+            <div>
+              <strong data-agent-name>Jacinto Daniel Peynado</strong>
+              <span>Agente de Seguros · La Colonial</span>
+            </div>
+          </div>
+          <div class="advisor-statement">
+            <p>Una gestión más clara para asegurar sin perder tiempo.</p>
+            <span>Atención privada, seguimiento ordenado y acompañamiento cuando realmente importa.</span>
+          </div>
+          <div class="advisor-list">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Cotización rápida para autos, salud, hogar, vida y negocios.</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Explicación clara de coberturas, deducibles y condiciones.</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Seguimiento para renovaciones y asistencia en siniestros.</span>
+          </div>
+          <a class="btn btn-secondary" href="#cotizar">Completar cotización rápida</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section about" id="sobre-mi">
+      <div class="wrap about-grid">
+        <div class="section-head reveal">
+          <span class="eyebrow">Sobre mí</span>
+          <h2>Un servicio claro, directo y diseñado alrededor de ti.</h2>
+        </div>
+        <div class="about-copy">
+          <p class="reveal">Te acompaño con una gestión de seguros seria y cercana: desde la cotización inicial hasta la emisión de tu póliza, renovaciones, seguimiento y asistencia cuando realmente necesitas una respuesta.</p>
+          <p class="reveal">Mi trabajo es simplificar el proceso, explicarte tus opciones con claridad y ayudarte a tomar una decisión segura, sin presión y con atención personalizada.</p>
+          <div class="signature-card reveal">
+            <div class="check-list">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Cotizaciones organizadas y fáciles de comparar.</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Emisión, renovaciones y seguimiento antes del vencimiento.</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 4 4L19 6"/></svg>Acompañamiento en siniestros con trato humano y profesional.</span>
+            </div>
+            <div class="line"></div>
+            <p>Atención premium para personas que valoran rapidez, discreción y confianza.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="seguros">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Qué necesitas asegurar</span>
+          <h2>Soluciones para tu vida, tu familia y tus activos.</h2>
+          <p class="lead">Cada caso se revisa con atención para buscar una opción adecuada a tu perfil, presupuesto y prioridades.</p>
+        </div>
+        <div class="grid cols-4">
+          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 16h14M6.5 16l1-5h9l1 5M8 19h.01M16 19h.01M8 11l1.2-3h5.6L16 11"/></svg></span><h3>Autos</h3><p>Coberturas prácticas para moverte con tranquilidad y respuesta cuando la necesites.</p></article>
+          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 21s8-4.4 8-11V5l-8-3-8 3v5c0 6.6 8 11 8 11Z"/><path d="M12 8v6M9 11h6"/></svg></span><h3>Salud</h3><p>Opciones para cuidar tu bienestar con acceso, continuidad y respaldo.</p></article>
+          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></span><h3>Hogar</h3><p>Protección para tu vivienda, contenido y tranquilidad familiar.</p></article>
+          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></span><h3>Vida</h3><p>Planes pensados para proteger a quienes dependen de ti.</p></article>
+          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11h18M5 11l2 8h10l2-8"/><path d="M7 11l5-7 5 7"/></svg></span><h3>Viajes</h3><p>Asistencia para viajar con más seguridad dentro y fuera del país.</p></article>
+          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-8h6v8"/><path d="M9 9h.01M15 9h.01"/></svg></span><h3>Negocios</h3><p>Coberturas comerciales para operaciones, activos y continuidad empresarial.</p></article>
+          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 15h16l-2-5H6l-2 5Z"/><path d="M7 15v2M17 15v2"/><path d="M8 10l1-3h6l1 3"/></svg></span><h3>Vehículos premium</h3><p>Atención refinada para autos de alto valor, uso ejecutivo y colecciones personales.</p></article>
+          <article class="card reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v18M3 12h18"/><path d="M5 5l14 14M19 5 5 19"/></svg></span><h3>Otros seguros</h3><p>Si tienes una necesidad específica, la evaluamos con discreción y claridad.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section benefits" id="beneficios">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Por qué elegirme</span>
+          <h2>Gestión premium, sin complicarte el día.</h2>
+        </div>
+        <div class="grid cols-4">
+          <article class="card benefit reveal"><h3>Atención personalizada</h3><p>Tu caso se revisa con contexto, no como un número más.</p></article>
+          <article class="card benefit reveal"><h3>Respuesta rápida</h3><p>Comunicación ágil para cotizar, aclarar y avanzar.</p></article>
+          <article class="card benefit reveal"><h3>Seguimiento preventivo</h3><p>Recordatorios antes del vencimiento para evitar sorpresas.</p></article>
+          <article class="card benefit reveal"><h3>Renovaciones simples</h3><p>Te ayudo a mantener tu protección al día con orden.</p></article>
+          <article class="card benefit reveal"><h3>Servicio directo</h3><p>Hablas con una persona que conoce tu caso.</p></article>
+          <article class="card benefit reveal"><h3>Asistencia en siniestros</h3><p>Acompañamiento cuando más importa actuar correctamente.</p></article>
+          <article class="card benefit reveal"><h3>Experiencia premium</h3><p>Trato claro, discreto y profesional de principio a fin.</p></article>
+          <article class="card benefit reveal"><h3>Acompañamiento continuo</h3><p>Una relación de confianza más allá de la emisión.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="proceso">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Cómo funciona</span>
+          <h2>Cuatro pasos. Cero fricción.</h2>
+          <p class="lead">Un proceso elegante y claro para que tomes decisiones con confianza.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal"><span class="num">01</span><div><h3>Me escribes</h3><p>Me compartes lo que quieres asegurar y tus datos básicos.</p></div></div>
+          <div class="step reveal"><span class="num">02</span><div><h3>Te cotizo</h3><p>Preparo una opción clara según tu necesidad y presupuesto.</p></div></div>
+          <div class="step reveal"><span class="num">03</span><div><h3>Comparas opciones</h3><p>Revisamos coberturas, deducibles y condiciones relevantes.</p></div></div>
+          <div class="step reveal"><span class="num">04</span><div><h3>Emitimos tu póliza</h3><p>Formalizamos tu protección y quedas acompañado.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="premium-strip">
+      <div class="wrap premium-content">
+        <div class="reveal">
+          <span class="eyebrow">Clientes premium</span>
+          <h2>Para quienes esperan un servicio a la altura de sus activos.</h2>
+          <p>Especializado en clientes que buscan atención rápida, personalizada y premium: empresarios, familias, vehículos de lujo y perfiles que valoran una gestión seria.</p>
+        </div>
+        <div class="badge-stack reveal">
+          <span class="badge">Empresarios</span>
+          <span class="badge">Familias</span>
+          <span class="badge">Vehículos de lujo</span>
+          <span class="badge">Atención privada</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonios">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Testimonios</span>
+          <h2>Experiencias que hablan de confianza.</h2>
+        </div>
+        <div class="grid testimonials">
+          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Excelente atención.”</p><strong>Cliente particular</strong></article>
+          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Proceso rápido y profesional.”</p><strong>Seguro de auto</strong></article>
+          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Siempre disponible para ayudar.”</p><strong>Renovación</strong></article>
+          <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Muy buena experiencia.”</p><strong>Asesoría familiar</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Preguntas frecuentes, respuestas claras.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="reveal"><summary>¿Qué necesito para cotizar?</summary><p>Depende del tipo de seguro. Para vehículos normalmente se solicita marca, modelo, año, versión, uso y datos básicos del titular.</p></details>
+          <details class="reveal"><summary>¿Qué es el deducible?</summary><p>Es la parte del reclamo que asume el asegurado según las condiciones de la póliza. Te explico ese punto antes de decidir.</p></details>
+          <details class="reveal"><summary>¿Puedo financiar la póliza?</summary><p>En muchos casos existen facilidades de pago. Revisamos las opciones disponibles según el tipo de póliza.</p></details>
+          <details class="reveal"><summary>¿Cómo funciona en caso de accidente?</summary><p>Me contactas tan pronto sea posible y te oriento sobre los pasos, documentación y canales correspondientes.</p></details>
+          <details class="reveal"><summary>¿Cuánto tarda una cotización?</summary><p>Si la información está completa, una cotización puede gestionarse con rapidez. El tiempo final depende del caso y tipo de seguro.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote" id="cotizar">
+      <div class="wrap quote-grid">
+        <div class="section-head reveal">
+          <span class="eyebrow">Cotización rápida</span>
+          <h2>Envíame tus datos y avanzamos por WhatsApp.</h2>
+          <p class="lead">El formulario prepara un mensaje con tu información para que podamos iniciar sin vueltas.</p>
+        </div>
+        <form class="form reveal" id="quoteForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="field">
+              <label for="phone">Teléfono</label>
+              <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="809 000 0000" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="vehicle">Vehículo</label>
+              <input id="vehicle" name="vehicle" placeholder="Marca y modelo">
+            </div>
+            <div class="field">
+              <label for="year">Año</label>
+              <input id="year" name="year" inputmode="numeric" placeholder="2026">
+            </div>
+          </div>
+          <div class="field">
+            <label for="insurance">Tipo de seguro</label>
+            <select id="insurance" name="insurance">
+              <option>Auto</option>
+              <option>Salud</option>
+              <option>Hogar</option>
+              <option>Vida</option>
+              <option>Viajes</option>
+              <option>Negocios / comercial</option>
+              <option>Vehículo premium</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <button class="btn btn-whatsapp" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8.5 11.3c.9 1.8 2.4 3.2 4.2 4.2l1.4-1.4c.2-.2.5-.3.8-.2.9.3 1.8.4 2.8.4.4 0 .7.3.7.7v2.3c0 .4-.3.7-.7.7A12.7 12.7 0 0 1 5 5.3c0-.4.3-.7.7-.7H8c.4 0 .7.3.7.7 0 1 .1 1.9.4 2.8.1.3 0 .6-.2.8l-1.4 1.4Z"/></svg>
+            Solicitar cotización
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="wrap reveal">
+        <span class="eyebrow">Atención directa</span>
+        <h2>Escríbeme y te ayudo a encontrar la mejor opción para ti.</h2>
+        <a class="btn btn-primary js-whatsapp" href="#">Hablar por WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <strong data-agent-name>Jacinto Daniel Peynado</strong>
+        <span>Agente de Seguros · La Colonial</span>
+      </div>
+      <div>
+        <strong>Contacto</strong>
+        <a data-phone-link href="tel:+18495711227" data-agent-phone>+1 (849) 571-1227</a><br>
+        <a data-agent-email href="mailto:correo@ejemplo.com">correo@ejemplo.com</a>
+      </div>
+      <div>
+        <strong>Social</strong>
+        <a data-agent-instagram href="https://instagram.com/" target="_blank" rel="noreferrer">@instagram</a><br>
+        <span data-agent-location>Santo Domingo</span>
+      </div>
+      <div>
+        <strong>Horario</strong>
+        <span>Lunes a viernes<br>8:30 AM - 6:00 PM</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-whatsapp js-whatsapp" href="#" aria-label="Hablar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L4 20l1-3.8A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.7 8.9c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.2.7l-.4.5c.6 1.1 1.5 2 2.6 2.6l.6-.4c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.6v.5c0 .4-.2.6-.5.8-.6.3-1.8.4-3.4-.4-1.9-.9-3.5-2.5-4.4-4.4-.7-1.5-.6-2.8-.3-3.4Z"/></svg>
+  </a>
+
+  <script>
+    const AGENT = {
+      name: "Jacinto Daniel Peynado",
+      role: "Agente de Seguros",
+      phoneDisplay: "+1 (849) 571-1227",
+      whatsappNumber: "18495711227",
+      email: "correo@ejemplo.com",
+      instagram: "@instagram",
+      instagramUrl: "https://instagram.com/",
+      location: "Santo Domingo",
+      photoUrl: ""
+    };
+
+    const qs = (selector, root = document) => root.querySelector(selector);
+    const qsa = (selector, root = document) => [...root.querySelectorAll(selector)];
+    const clean = (value) => String(value || "").trim();
+    const whatsappUrl = (message = "Hola, quiero cotizar un seguro.") =>
+      `https://wa.me/${AGENT.whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    function initialsFromName(name) {
+      const parts = clean(name).split(/\s+/).filter(Boolean);
+      return (parts[0]?.[0] || "L") + (parts[1]?.[0] || "C");
+    }
+
+    function hydrateAgentData() {
+      qsa("[data-agent-name]").forEach((el) => { el.textContent = AGENT.name; });
+      qsa("[data-initials]").forEach((el) => { el.textContent = initialsFromName(AGENT.name).toUpperCase(); });
+      qsa("[data-agent-phone]").forEach((el) => { el.textContent = AGENT.phoneDisplay; });
+      qsa("[data-phone-link]").forEach((el) => { el.href = `tel:+${AGENT.whatsappNumber}`; });
+      qsa("[data-agent-email]").forEach((el) => {
+        el.textContent = AGENT.email;
+        el.href = `mailto:${AGENT.email}`;
+      });
+      qsa("[data-agent-instagram]").forEach((el) => {
+        el.textContent = AGENT.instagram;
+        el.href = AGENT.instagramUrl;
+      });
+      qsa("[data-agent-location]").forEach((el) => { el.textContent = AGENT.location; });
+      qsa(".js-whatsapp").forEach((el) => { el.href = whatsappUrl(); });
+
+      const photo = qs("#agentPhoto");
+      const fallback = qs("#photoFallback");
+      if (photo && fallback && AGENT.photoUrl) {
+        photo.style.display = "block";
+        photo.src = AGENT.photoUrl;
+        photo.onload = () => { fallback.style.display = "none"; };
+        photo.onerror = () => { fallback.style.display = "grid"; };
+      } else if (photo && fallback) {
+        photo.removeAttribute("src");
+        photo.style.display = "none";
+        fallback.style.display = "grid";
+      }
+    }
+
+    function setupScrollEffects() {
+      const header = qs("#siteHeader");
+      const floatingWhatsapp = qs(".float-whatsapp");
+      const setChrome = () => {
+        header.classList.toggle("is-scrolled", window.scrollY > 14);
+        if (floatingWhatsapp) {
+          floatingWhatsapp.classList.toggle("is-visible", window.scrollY > 360 || window.innerWidth > 680);
+        }
+      };
+      setChrome();
+      window.addEventListener("scroll", setChrome, { passive: true });
+      window.addEventListener("resize", setChrome, { passive: true });
+
+      const reveals = qsa(".reveal");
+      document.documentElement.classList.add("animations-ready");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -50px 0px" });
+
+      reveals.forEach((el, index) => {
+        if (!el.style.getPropertyValue("--delay")) {
+          el.style.setProperty("--delay", `${Math.min(index % 6, 5) * 45}ms`);
+        }
+        observer.observe(el);
+      });
+    }
+
+    function setupQuoteForm() {
+      qs("#quoteForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const form = new FormData(event.currentTarget);
+        const message = [
+          "Hola, quiero cotizar un seguro.",
+          "",
+          `Nombre: ${clean(form.get("name"))}`,
+          `Teléfono: ${clean(form.get("phone"))}`,
+          `Tipo de seguro: ${clean(form.get("insurance"))}`,
+          `Vehículo: ${clean(form.get("vehicle")) || "No especificado"}`,
+          `Año: ${clean(form.get("year")) || "No especificado"}`
+        ].join("\n");
+        window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
+      });
+    }
+
+    hydrateAgentData();
+    setupScrollEffects();
+    setupQuoteForm();
+  </script>
+</body>
+</html>
