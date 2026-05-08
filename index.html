@@ -6,14 +6,14 @@
   <meta name="theme-color" content="#f7f8fa">
   <meta name="color-scheme" content="light">
   <title>Jacinto Daniel Peynado | Agente de Seguros La Colonial</title>
-  <meta name="description" content="Cotiza seguros con Jacinto Daniel Peynado. Atención directa por WhatsApp para autos, salud, hogar, vida, viajes, negocios y vehículos premium.">
+  <meta name="description" content="Cotiza seguros con Jacinto Daniel Peynado. Atención directa por WhatsApp para autos, salud, hogar, vida, viajes, negocios y vehículos de alto valor.">
 
   <!-- Open Graph / WhatsApp. Cambia og:image por una imagen pública cuando publiques la web. -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_DO">
   <meta property="og:title" content="Jacinto Daniel Peynado | Seguros La Colonial">
   <meta property="og:description" content="Cotizaciones rápidas, emisión de pólizas y seguimiento personalizado por WhatsApp.">
-  <meta property="og:image" content="https://placehold.co/1200x630/071a33/f5f1e8?text=Seguros+Premium+La+Colonial">
+  <meta property="og:image" content="https://placehold.co/1200x630/071a33/f5f1e8?text=Seguros+La+Colonial">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -173,8 +173,6 @@
       color: var(--navy);
       font-size: 14px;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       max-width: 210px;
     }
     .brand-text span {
@@ -209,6 +207,8 @@
     .nav-links a:hover::after { transform: scaleX(1); }
 
     .btn {
+      position: relative;
+      overflow: hidden;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -224,15 +224,38 @@
       -webkit-tap-highlight-color: transparent;
     }
     .btn svg { width: 18px; height: 18px; stroke-width: 1.9; }
+    .btn:active {
+      transform: translateY(0) scale(.985);
+    }
+    .btn:focus-visible,
+    .utility-pill:focus-visible,
+    .tab-button:focus-visible,
+    .situation-option:focus-visible,
+    .insurance-option:focus-visible {
+      outline: 2px solid rgba(189,154,95,.78);
+      outline-offset: 3px;
+    }
     .btn-primary {
       background: var(--navy);
       color: #fff;
       box-shadow: 0 16px 34px rgba(7,26,51,.17);
     }
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.18) 44%, transparent 58%);
+      transform: translateX(-130%);
+      transition: transform .65s ease;
+      pointer-events: none;
+    }
     .btn-primary:hover {
       transform: translateY(-2px);
       background: #0a2342;
       box-shadow: 0 20px 44px rgba(7,26,51,.23);
+    }
+    .btn-primary:hover::after {
+      transform: translateX(130%);
     }
     .btn-secondary {
       color: var(--navy);
@@ -577,10 +600,30 @@
       -webkit-backdrop-filter: blur(16px);
     }
     .intro-card {
+      position: relative;
       padding: 30px;
       display: grid;
       gap: 22px;
       align-content: start;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--gold), rgba(7,26,51,.2), transparent);
+    }
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      right: 26px;
+      top: 72px;
+      bottom: 72px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(189,154,95,.34), transparent);
+      z-index: -1;
     }
     .profile-line {
       display: flex;
@@ -616,10 +659,27 @@
       gap: 10px;
     }
     .trust-line {
+      width: fit-content;
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(189,154,95,.22);
+      background: rgba(255,255,255,.76);
       color: #536173;
       font-size: 13px;
       line-height: 1.35;
       margin-top: -2px;
+    }
+    .trust-line::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(189,154,95,.13);
     }
     .utility-row {
       display: grid;
@@ -703,9 +763,11 @@
       gap: 8px;
       padding: 6px;
       border-radius: 10px;
-      background: #f0f2f5;
+      background: linear-gradient(180deg, #edf0f4, #f7f8fa);
+      border: 1px solid rgba(11,47,85,.06);
     }
     .tab-button {
+      position: relative;
       min-height: 44px;
       border: 0;
       border-radius: 8px;
@@ -721,6 +783,16 @@
       background: #fff;
       color: var(--navy);
       box-shadow: 0 8px 22px rgba(11,47,85,.08);
+    }
+    .tab-button[aria-selected="true"]::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 6px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gold);
     }
     .tab-panels {
       position: relative;
@@ -742,6 +814,14 @@
       gap: 22px;
     }
     .panel-kicker {
+      width: fit-content;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(189,154,95,.2);
+      background: #fff;
       color: var(--gold);
       font-size: 12px;
       font-weight: 780;
@@ -763,6 +843,7 @@
       gap: 12px;
     }
     .action-card {
+      position: relative;
       display: grid;
       gap: 12px;
       min-height: 178px;
@@ -770,6 +851,20 @@
       border: 1px solid var(--line);
       border-radius: 10px;
       background: #fff;
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+      overflow: hidden;
+    }
+    .action-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), rgba(189,154,95,.08));
+    }
+    .action-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(189,154,95,.42);
+      box-shadow: 0 16px 36px rgba(7,26,51,.08);
     }
     .action-card strong {
       color: var(--navy);
@@ -793,6 +888,12 @@
       border: 1px solid rgba(11,47,85,.1);
       border-radius: 10px;
       background: #fff;
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+    .clarity-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(189,154,95,.34);
+      box-shadow: 0 12px 26px rgba(7,26,51,.06);
     }
     .clarity-item span {
       width: 26px;
@@ -814,30 +915,6 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.35;
-    }
-    .quick-builder {
-      display: grid;
-      gap: 14px;
-      padding: 20px;
-      border: 1px solid rgba(7,26,51,.12);
-      border-radius: 12px;
-      background: linear-gradient(180deg, #fff, var(--soft));
-    }
-    .quick-builder strong {
-      color: var(--navy);
-      font-size: 20px;
-    }
-    .quick-builder p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .quick-builder-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .quick-builder select {
-      min-height: 46px;
     }
     .situation-panel {
       display: grid;
@@ -881,6 +958,7 @@
       background: var(--navy);
       border-color: var(--navy);
       color: #fff;
+      box-shadow: 0 10px 22px rgba(7,26,51,.14);
     }
     .situation-result {
       display: grid;
@@ -889,6 +967,15 @@
       border-radius: 10px;
       background: #fff;
       border: 1px solid var(--line);
+      transition: opacity .2s ease, transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .situation-result.is-changing {
+      opacity: .5;
+      transform: translateY(5px);
+    }
+    .situation-result:hover {
+      border-color: rgba(189,154,95,.32);
+      box-shadow: 0 12px 28px rgba(7,26,51,.06);
     }
     .situation-result b {
       color: var(--navy);
@@ -965,6 +1052,7 @@
       background: var(--navy);
       border-color: var(--navy);
       color: #fff;
+      box-shadow: 0 10px 22px rgba(7,26,51,.14);
     }
     .insurance-detail {
       position: relative;
@@ -1052,6 +1140,12 @@
       border: 1px solid var(--line);
       border-radius: 10px;
       background: #fff;
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+    .bio-note:hover {
+      transform: translateY(-2px);
+      border-color: rgba(189,154,95,.34);
+      box-shadow: 0 12px 26px rgba(7,26,51,.06);
     }
     .bio-note strong {
       color: var(--navy);
@@ -1085,6 +1179,12 @@
       border-radius: 10px;
       border: 1px solid var(--line);
       background: #fff;
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+    .simple-step:hover {
+      transform: translateY(-2px);
+      border-color: rgba(189,154,95,.34);
+      box-shadow: 0 12px 26px rgba(7,26,51,.06);
     }
     .simple-step span {
       color: var(--gold);
@@ -1112,6 +1212,12 @@
       border: 1px solid var(--line);
       border-radius: 10px;
       background: #fff;
+      transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    }
+    .requirement-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(189,154,95,.38);
+      box-shadow: 0 16px 34px rgba(7,26,51,.07);
     }
     .requirement-card strong {
       color: var(--navy);
@@ -1694,9 +1800,6 @@
         width: 100%;
         min-height: 46px;
       }
-      .quick-builder-grid {
-        grid-template-columns: 1fr;
-      }
       .workspace-card {
         padding: 12px;
       }
@@ -1938,12 +2041,12 @@
             </div>
           </div>
         </div>
-        <h1 id="heroTitle">Seguro claro. Atención directa.</h1>
-        <p class="lead" id="heroLead">Cotiza, agenda una cita o visítame en Porsche Center Santo Domingo. Te ayudo a elegir sin complicarte.</p>
+        <h1 id="heroTitle">Seguros claros. Atención directa.</h1>
+        <p class="lead" id="heroLead">Cotiza, renueva o revisa opciones de seguro con una atención rápida, clara y personalizada.</p>
         <div class="quick-actions">
-          <a class="btn btn-primary js-whatsapp" id="heroWhatsapp" href="#">Escribir por WhatsApp</a>
+          <a class="btn btn-primary js-whatsapp" id="heroWhatsapp" href="#">Solicitar orientación</a>
           <button class="btn btn-secondary tab-jump" id="heroAppointment" type="button" data-tab-target="cita">Agendar cita</button>
-          <p class="trust-line" id="heroTrustLine">Sin compromiso. Te explico las opciones antes de avanzar.</p>
+          <p class="trust-line" id="heroTrustLine">Te explico las opciones antes de avanzar.</p>
         </div>
         <div class="micro-proof">
           <div><strong>Directo</strong><span>hablas conmigo</span></div>
@@ -1957,7 +2060,7 @@
           <button class="tab-button" id="tab-inicio" type="button" role="tab" aria-selected="true" aria-controls="panel-inicio" data-tab="inicio">Inicio</button>
           <button class="tab-button" id="tab-quien" type="button" role="tab" aria-selected="false" aria-controls="panel-quien" data-tab="quien">Quién soy</button>
           <button class="tab-button" id="tab-seguros" type="button" role="tab" aria-selected="false" aria-controls="panel-seguros" data-tab="seguros">Seguros</button>
-          <button class="tab-button" id="tab-requisitos" type="button" role="tab" aria-selected="false" aria-controls="panel-requisitos" data-tab="requisitos">Requisitos</button>
+          <button class="tab-button" id="tab-requisitos" type="button" role="tab" aria-selected="false" aria-controls="panel-requisitos" data-tab="requisitos">Qué enviar</button>
           <button class="tab-button" id="tab-cita" type="button" role="tab" aria-selected="false" aria-controls="panel-cita" data-tab="cita">Cita</button>
           <button class="tab-button" id="tab-ubicacion" type="button" role="tab" aria-selected="false" aria-controls="panel-ubicacion" data-tab="ubicacion">Dónde estoy</button>
         </div>
@@ -1967,11 +2070,28 @@
             <div class="panel-inner">
               <span class="panel-kicker">Para empezar</span>
               <h2>Elige cómo quieres avanzar.</h2>
-              <p>Si tienes prisa, escríbeme. Si prefieres sentarte y revisarlo con calma, agenda una cita.</p>
+              <p>Selecciona tu situación y abre WhatsApp con un mensaje claro para iniciar el proceso.</p>
+              <div class="situation-panel">
+                <strong id="situationTitle">¿Qué situación tienes?</strong>
+                <p id="situationCopy">Selecciona una opción para preparar un mensaje directo por WhatsApp.</p>
+                <div class="situation-options" aria-label="Situaciones comunes">
+                  <button class="situation-option is-active" type="button" data-situation="vehiculo">Compré un vehículo</button>
+                  <button class="situation-option" type="button" data-situation="renovar">Quiero renovar</button>
+                  <button class="situation-option" type="button" data-situation="comparar">Quiero comparar</button>
+                  <button class="situation-option" type="button" data-situation="empresa">Tengo una empresa</button>
+                  <button class="situation-option" type="button" data-situation="orientacion">Necesito orientación</button>
+                  <button class="situation-option" type="button" data-situation="accidente">Tuve un accidente</button>
+                </div>
+                <div class="situation-result" aria-live="polite">
+                  <b id="situationResultTitle">Seguro para vehículo nuevo</b>
+                  <span id="situationResultCopy">Te pediré marca, modelo, año, uso del vehículo y datos del titular para empezar.</span>
+                  <a class="btn btn-primary" id="situationWhatsapp" href="#">Enviar por WhatsApp</a>
+                </div>
+              </div>
               <div class="action-grid">
                 <div class="action-card">
                   <strong>Cotizar ahora</strong>
-                  <p>Me dices qué quieres asegurar y te pido solo lo necesario.</p>
+                  <p>Me indicas qué deseas asegurar y te pido solo lo necesario.</p>
                   <a class="btn btn-primary js-whatsapp" href="#">WhatsApp</a>
                 </div>
                 <div class="action-card">
@@ -1988,8 +2108,8 @@
               <div class="clarity-row" aria-label="Proceso simple">
                 <div class="clarity-item">
                   <span>1</span>
-                  <strong id="clarityOneTitle">Me dices tu situación</strong>
-                  <p id="clarityOneCopy">Auto, salud, hogar, renovación, empresa o una duda puntual.</p>
+                  <strong id="clarityOneTitle">Me indicas tu situación</strong>
+                  <p id="clarityOneCopy">Auto, salud, hogar, renovación, empresa o una consulta puntual.</p>
                 </div>
                 <div class="clarity-item">
                   <span>2</span>
@@ -2002,62 +2122,10 @@
                   <p id="clarityThreeCopy">Te explico cobertura, requisitos y próximos pasos con claridad.</p>
                 </div>
               </div>
-              <div class="situation-panel">
-                <strong id="situationTitle">¿Qué situación tienes?</strong>
-                <p id="situationCopy">Elige una opción y te preparo el mensaje correcto para WhatsApp.</p>
-                <div class="situation-options" aria-label="Situaciones comunes">
-                  <button class="situation-option is-active" type="button" data-situation="vehiculo">Compré un vehículo</button>
-                  <button class="situation-option" type="button" data-situation="renovar">Quiero renovar</button>
-                  <button class="situation-option" type="button" data-situation="comparar">Quiero comparar</button>
-                  <button class="situation-option" type="button" data-situation="empresa">Tengo una empresa</button>
-                  <button class="situation-option" type="button" data-situation="orientacion">No sé qué necesito</button>
-                  <button class="situation-option" type="button" data-situation="accidente">Tuve un accidente</button>
-                </div>
-                <div class="situation-result" aria-live="polite">
-                  <b id="situationResultTitle">Seguro para vehículo nuevo</b>
-                  <span id="situationResultCopy">Te pediré marca, modelo, año, uso del vehículo y datos del titular para empezar.</span>
-                  <a class="btn btn-primary" id="situationWhatsapp" href="#">Preparar mensaje</a>
-                </div>
-              </div>
-              <div class="quick-builder">
-                <strong id="builderTitle">Arma tu mensaje en 10 segundos.</strong>
-                <p id="builderCopy">Elige lo básico y abre WhatsApp con un mensaje más claro.</p>
-                <div class="quick-builder-grid">
-                  <div class="field">
-                    <label for="quickNeed" id="quickNeedLabel">Necesito</label>
-                    <select id="quickNeed">
-                      <option>Auto</option>
-                      <option>Salud</option>
-                      <option>Hogar</option>
-                      <option>Vida</option>
-                      <option>Viajes</option>
-                      <option>Negocios</option>
-                      <option>Vehículo premium</option>
-                    </select>
-                  </div>
-                  <div class="field">
-                    <label for="quickWhen" id="quickWhenLabel">Tiempo</label>
-                    <select id="quickWhen">
-                      <option>Hoy</option>
-                      <option>Esta semana</option>
-                      <option>Solo explorando</option>
-                    </select>
-                  </div>
-                  <div class="field">
-                    <label for="quickHow" id="quickHowLabel">Prefiero</label>
-                    <select id="quickHow">
-                      <option>WhatsApp</option>
-                      <option>Llamada</option>
-                      <option>Presencial</option>
-                    </select>
-                  </div>
-                </div>
-                <a class="btn btn-primary" id="quickMessage" href="#">Preparar WhatsApp</a>
-              </div>
               <div class="mini-faq">
                 <div class="accident-note">
                   <strong id="accidentNoteTitle">Si ocurre un accidente</strong>
-                  <span id="accidentNoteCopy">Primero llama al número de asistencia vial indicado en tu marbete o póliza. Si hay emergencia o heridos, llama al 9-1-1. Luego escríbeme para ayudarte con el seguimiento.</span>
+                  <span id="accidentNoteCopy">Para accidentes: llama primero a asistencia vial o al 9-1-1 si hay emergencia. Luego escríbeme para ayudarte con el seguimiento.</span>
                 </div>
                 <details>
                   <summary id="miniFaqOneQ">¿Puedo agendar una cita presencial?</summary>
@@ -2065,7 +2133,7 @@
                 </details>
                 <details>
                   <summary id="miniFaqTwoQ">¿Qué pasa si no sé qué seguro necesito?</summary>
-                  <p id="miniFaqTwoA">Me escribes y revisamos tu caso. La idea es simplificar, no complicarte.</p>
+                  <p id="miniFaqTwoA">Me escribes y revisamos tu situación para identificar el próximo paso.</p>
                 </details>
                 <details>
                   <summary id="miniFaqThreeQ">¿Se puede financiar la póliza?</summary>
@@ -2078,7 +2146,7 @@
           <article class="tab-panel" id="panel-quien" role="tabpanel" aria-labelledby="tab-quien">
             <div class="panel-inner">
               <span class="panel-kicker">Quién soy</span>
-              <h2 id="aboutTitle">Vengo del mundo de negocios y servicio premium.</h2>
+              <h2 id="aboutTitle">Vengo del mundo de negocios y atención personalizada.</h2>
               <p id="aboutCopy">Mi enfoque combina formación internacional, trato directo y una manera clara de explicar opciones. La idea es que tomes decisiones con confianza, sin sentirte abrumado por términos complicados.</p>
               <div class="client-note">
                 <strong id="aboutNoteTitle">Atención con criterio</strong>
@@ -2086,7 +2154,7 @@
               </div>
               <div class="bio-grid">
                 <div class="bio-note"><strong>Formación internacional</strong><span>Negocios Internacionales, Hult Boston.</span></div>
-                <div class="bio-note"><strong>Servicio premium</strong><span>Experiencia en ventas y postventa automotriz de lujo.</span></div>
+                <div class="bio-note"><strong>Servicio personalizado</strong><span>Experiencia en ventas y postventa automotriz de lujo.</span></div>
                 <div class="bio-note"><strong>Bilingüe</strong><span>Comunicación en español e inglés.</span></div>
                 <div class="bio-note"><strong>Enfoque</strong><span>Relaciones, confianza y soluciones prácticas.</span></div>
               </div>
@@ -2097,7 +2165,7 @@
             <div class="panel-inner">
               <span class="panel-kicker">Seguros</span>
               <h2>Explora antes de escribirme.</h2>
-              <p>Toca un seguro para ver qué suele cubrir, qué datos hacen falta y cómo avanzar.</p>
+              <p>Selecciona un tipo de seguro para ver qué suele cubrir, qué datos hacen falta y cómo avanzar.</p>
               <div class="insurance-picker">
                 <div class="insurance-options" aria-label="Tipos de seguros">
                   <button class="insurance-option is-active" type="button" data-insurance="auto">Auto</button>
@@ -2106,7 +2174,7 @@
                   <button class="insurance-option" type="button" data-insurance="vida">Vida</button>
                   <button class="insurance-option" type="button" data-insurance="viajes">Viajes</button>
                   <button class="insurance-option" type="button" data-insurance="negocios">Negocios</button>
-                  <button class="insurance-option" type="button" data-insurance="premium">Vehículo premium</button>
+                  <button class="insurance-option" type="button" data-insurance="premium">Vehículo de alto valor</button>
                 </div>
                 <div class="insurance-detail" id="insuranceDetail" aria-live="polite">
                   <div class="insurance-detail-head">
@@ -2134,7 +2202,7 @@
                   </div>
                   <div class="insurance-actions">
                     <a class="btn btn-primary" id="insuranceWhatsapp" href="#">Cotizar este seguro</a>
-                    <button class="btn btn-secondary tab-jump" id="insuranceReqButton" type="button" data-tab-target="requisitos">Ver requisitos</button>
+                    <button class="btn btn-secondary tab-jump" id="insuranceReqButton" type="button" data-tab-target="requisitos">Ver qué enviar</button>
                   </div>
                 </div>
               </div>
@@ -2309,48 +2377,42 @@
     let currentSituation = "vehiculo";
     const UI_TEXT = {
       es: {
-        heroTitle: "Seguro claro. Atención directa.",
-        heroLead: "Cotiza, agenda una cita o visítame en Porsche Center Santo Domingo. Te ayudo a elegir sin complicarte.",
-        heroWhatsapp: "Escribir por WhatsApp",
+        heroTitle: "Seguros claros. Atención directa.",
+        heroLead: "Cotiza, renueva o revisa opciones de seguro con una atención rápida, clara y personalizada.",
+        heroWhatsapp: "Solicitar orientación",
         heroAppointment: "Agendar cita",
-        heroTrustLine: "Sin compromiso. Te explico las opciones antes de avanzar.",
+        heroTrustLine: "Te explico las opciones antes de avanzar.",
         languageLabel: "Idioma",
-        builderTitle: "Arma tu mensaje en 10 segundos.",
-        builderCopy: "Elige lo básico y abre WhatsApp con un mensaje más claro.",
-        quickButton: "Preparar WhatsApp",
-        quickLabels: ["Necesito", "Tiempo", "Prefiero"],
-        quickNeedOptions: ["Auto", "Salud", "Hogar", "Vida", "Viajes", "Negocios", "Vehículo premium"],
-        quickWhenOptions: ["Hoy", "Esta semana", "Solo explorando"],
-        quickHowOptions: ["WhatsApp", "Llamada", "Presencial"],
+        statusLabels: ["Disponible para cotizar", "Atención directa", "Santo Domingo"],
         proofTitles: ["Directo", "Claro", "Flexible"],
         proofCopies: ["hablas conmigo", "te explico opciones", "WhatsApp o presencial"],
         miniFaq: [
           ["¿Puedo agendar una cita presencial?", "Sí. Podemos coordinar una visita en Porsche Center Santo Domingo con cita previa."],
-          ["¿Qué pasa si no sé qué seguro necesito?", "Me escribes y revisamos tu caso. La idea es simplificar, no complicarte."],
+          ["¿Qué pasa si no sé qué seguro necesito?", "Me escribes y revisamos tu situación para identificar el próximo paso."],
           ["¿Se puede financiar la póliza?", "Por ahora no gestiono financiamiento. Te ayudo con cotización, emisión, requisitos y seguimiento."]
         ],
         whatsappDefault: "Hola Jacinto, quiero cotizar un seguro.",
         quotePrefix: "Hola Jacinto, quiero cotizar",
-        tabs: ["Inicio", "Quién soy", "Seguros", "Requisitos", "Cita", "Dónde estoy"],
+        tabs: ["Inicio", "Quién soy", "Seguros", "Qué enviar", "Cita", "Dónde estoy"],
         startKicker: "Para empezar",
         startTitle: "Elige cómo quieres avanzar.",
-        startCopy: "Si tienes prisa, escríbeme. Si prefieres sentarte y revisarlo con calma, agenda una cita.",
+        startCopy: "Selecciona tu situación y abre WhatsApp con un mensaje claro para iniciar el proceso.",
         actionTitles: ["Cotizar ahora", "Agendar cita", "Visitarme"],
-        actionCopies: ["Me dices qué quieres asegurar y te pido solo lo necesario.", "Podemos coordinar llamada o reunión presencial.", "Estoy disponible en Porsche Center Santo Domingo con cita previa."],
+        actionCopies: ["Me indicas qué deseas asegurar y te pido solo lo necesario.", "Podemos coordinar llamada o reunión presencial.", "Estoy disponible en Porsche Center Santo Domingo con cita previa."],
         actionButtons: ["WhatsApp", "Ver opciones", "Ver mapa"],
-        clarityTitles: ["Me dices tu situación", "Te digo qué enviar", "Revisamos la opción"],
-        clarityCopies: ["Auto, salud, hogar, renovación, empresa o una duda puntual.", "Solo los datos necesarios para cotizar o avanzar con la póliza.", "Te explico cobertura, requisitos y próximos pasos con claridad."],
+        clarityTitles: ["Me indicas tu situación", "Te digo qué enviar", "Revisamos la opción"],
+        clarityCopies: ["Auto, salud, hogar, renovación, empresa o una consulta puntual.", "Solo los datos necesarios para cotizar o avanzar con la póliza.", "Te explico cobertura, requisitos y próximos pasos con claridad."],
         situationTitle: "¿Qué situación tienes?",
-        situationCopy: "Elige una opción y te preparo el mensaje correcto para WhatsApp.",
-        situationButton: "Preparar mensaje",
+        situationCopy: "Selecciona una opción para preparar un mensaje directo por WhatsApp.",
+        situationButton: "Enviar por WhatsApp",
         accidentNoteTitle: "Si ocurre un accidente",
-        accidentNoteCopy: "Primero llama al número de asistencia vial indicado en tu marbete o póliza. Si hay emergencia o heridos, llama al 9-1-1. Luego escríbeme para ayudarte con el seguimiento.",
-        aboutTitle: "Vengo del mundo de negocios y servicio premium.",
+        accidentNoteCopy: "Para accidentes: llama primero a asistencia vial o al 9-1-1 si hay emergencia. Luego escríbeme para ayudarte con el seguimiento.",
+        aboutTitle: "Vengo del mundo de negocios y atención personalizada.",
         aboutCopy: "Mi enfoque combina formación internacional, trato directo y una manera clara de explicar opciones. La idea es que tomes decisiones con confianza, sin sentirte abrumado por términos complicados.",
         aboutNoteTitle: "Atención con criterio",
         aboutNoteCopy: "Vengo de trabajar con clientes que valoran rapidez, discreción y seguimiento. Ese mismo estándar lo aplico a cada cotización, renovación o consulta.",
         segurosTitle: "Explora antes de escribirme.",
-        segurosCopy: "Toca un seguro para ver qué suele cubrir, qué datos hacen falta y cómo avanzar.",
+        segurosCopy: "Selecciona un tipo de seguro para ver qué suele cubrir, qué datos hacen falta y cómo avanzar.",
         requirementsTitle: "Te digo exactamente qué documento usar.",
         requirementsCopy: "Para emitir o avanzar una póliza, normalmente se completa el formulario Conoce tu Cliente. Solo tienes que elegir si aplicas como persona física o persona jurídica.",
         reqStepTitles: ["Elige tu tipo", "Abre el PDF", "Me escribes"],
@@ -2358,51 +2420,45 @@
         coverLabel: "Puede cubrir",
         reqLabel: "Para cotizar",
         quoteThis: "Cotizar este seguro",
-        seeReq: "Ver requisitos"
+        seeReq: "Ver qué enviar"
       },
       en: {
         heroTitle: "Clear insurance. Direct attention.",
-        heroLead: "Quote, schedule a meeting, or visit me at Porsche Center Santo Domingo. I will help you choose without complications.",
-        heroWhatsapp: "Message on WhatsApp",
+        heroLead: "Quote, renew, or review insurance options with fast, clear, personalized attention.",
+        heroWhatsapp: "Request guidance",
         heroAppointment: "Schedule meeting",
-        heroTrustLine: "No pressure. I explain the options before moving forward.",
+        heroTrustLine: "I explain the options before moving forward.",
         languageLabel: "Language",
-        builderTitle: "Build your message in 10 seconds.",
-        builderCopy: "Choose the basics and open WhatsApp with a clearer message.",
-        quickButton: "Prepare WhatsApp",
-        quickLabels: ["I need", "Timing", "I prefer"],
-        quickNeedOptions: ["Auto", "Health", "Home", "Life", "Travel", "Business", "Premium vehicle"],
-        quickWhenOptions: ["Today", "This week", "Just exploring"],
-        quickHowOptions: ["WhatsApp", "Call", "In person"],
+        statusLabels: ["Available for quotes", "Direct attention", "Santo Domingo"],
         proofTitles: ["Direct", "Clear", "Flexible"],
         proofCopies: ["you talk to me", "I explain options", "WhatsApp or in person"],
         miniFaq: [
           ["Can I schedule an in-person meeting?", "Yes. We can coordinate a visit at Porsche Center Santo Domingo by appointment."],
-          ["What if I do not know what I need?", "Message me and we will review your case. The idea is to simplify, not complicate."],
+          ["What if I do not know what I need?", "Message me and we will review your situation to identify the next step."],
           ["Can the policy be financed?", "I am not managing financing at the moment. I can help with quotes, issuance, requirements, and follow-up."]
         ],
         whatsappDefault: "Hi Jacinto, I want to quote an insurance policy.",
         quotePrefix: "Hi Jacinto, I want to quote",
-        tabs: ["Start", "About me", "Insurance", "Requirements", "Meeting", "Location"],
+        tabs: ["Start", "About me", "Insurance", "What to send", "Meeting", "Location"],
         startKicker: "Start here",
         startTitle: "Choose how you want to move forward.",
-        startCopy: "If you are in a hurry, message me. If you prefer to review it calmly, schedule a meeting.",
+        startCopy: "Select your situation and open WhatsApp with a clear message to start the process.",
         actionTitles: ["Quote now", "Schedule meeting", "Visit me"],
-        actionCopies: ["Tell me what you want to insure and I will ask only for what is needed.", "We can coordinate a call or an in-person meeting.", "I am available at Porsche Center Santo Domingo by appointment."],
+        actionCopies: ["Share what you would like to insure and I will ask only for what is needed.", "We can coordinate a call or an in-person meeting.", "I am available at Porsche Center Santo Domingo by appointment."],
         actionButtons: ["WhatsApp", "See options", "View map"],
-        clarityTitles: ["Tell me your situation", "I tell you what to send", "We review the option"],
+        clarityTitles: ["Share your situation", "I confirm what to send", "We review the option"],
         clarityCopies: ["Auto, health, home, renewal, business, or a specific question.", "Only the information needed to quote or move forward with the policy.", "I explain coverage, requirements, and next steps clearly."],
         situationTitle: "What situation are you in?",
-        situationCopy: "Choose one option and I will prepare the right WhatsApp message.",
-        situationButton: "Prepare message",
+        situationCopy: "Select an option to prepare a direct WhatsApp message.",
+        situationButton: "Send by WhatsApp",
         accidentNoteTitle: "If an accident happens",
-        accidentNoteCopy: "First call the roadside assistance number shown on your insurance sticker or policy. If there is an emergency or injuries, call 9-1-1. Then message me so I can help with the follow-up.",
-        aboutTitle: "My background is business and premium service.",
+        accidentNoteCopy: "For accidents: first call roadside assistance or 9-1-1 if there is an emergency. Then message me so I can help with the follow-up.",
+        aboutTitle: "My background is business and personalized service.",
         aboutCopy: "My approach combines international training, direct attention, and a clear way of explaining options. The goal is for you to make decisions with confidence, without feeling overwhelmed by complicated terms.",
         aboutNoteTitle: "Thoughtful attention",
         aboutNoteCopy: "I come from working with clients who value speed, discretion, and follow-up. I bring that same standard to each quote, renewal, or consultation.",
         segurosTitle: "Explore before messaging me.",
-        segurosCopy: "Tap an insurance type to see what it may cover, what data is needed, and how to proceed.",
+        segurosCopy: "Select an insurance type to see what it may cover, what data is needed, and how to proceed.",
         requirementsTitle: "I tell you exactly which document to use.",
         requirementsCopy: "To issue or move forward with a policy, the Know Your Customer form is normally completed. Just choose whether you apply as an individual or through a company.",
         reqStepTitles: ["Choose your type", "Open the PDF", "Message me"],
@@ -2410,7 +2466,7 @@
         coverLabel: "May cover",
         reqLabel: "To quote",
         quoteThis: "Quote this insurance",
-        seeReq: "See requirements"
+        seeReq: "See what to send"
       }
     };
     const INSURANCE_DETAILS = {
@@ -2463,9 +2519,9 @@
         coverage: ["Propiedad, equipos o inventario.", "Responsabilidad civil.", "Coberturas comerciales según actividad."],
         requirements: ["RNC o datos de empresa.", "Actividad comercial.", "Activos o riesgos a proteger."]
       },
-      premium: {
-        kicker: "Vehículo premium",
-        label: "Vehículo premium",
+        premium: {
+        kicker: "Vehículo de alto valor",
+        label: "Vehículo de alto valor",
         title: "Un auto especial merece una gestión especial.",
         summary: "Para vehículos de alto valor donde importan el detalle, la rapidez y una explicación fina de condiciones.",
         coverage: ["Daños propios y terceros según plan.", "Robo, incendio y asistencia según opción.", "Evaluación de deducibles y condiciones relevantes."],
@@ -2522,8 +2578,8 @@
           requirements: ["Company data or RNC.", "Business activity.", "Assets or risks to protect."]
         },
         premium: {
-          kicker: "Premium vehicle",
-          label: "Premium vehicle",
+          kicker: "High-value vehicle",
+          label: "High-value vehicle",
           title: "A special car deserves special handling.",
           summary: "For high-value vehicles where detail, speed, and a refined explanation of conditions matter.",
           coverage: ["Own damage and third parties depending on plan.", "Theft, fire, and assistance depending on option.", "Review of deductibles and key conditions."],
@@ -2558,10 +2614,10 @@
           message: "Hola Jacinto, quiero revisar opciones de seguro para una empresa. ¿Qué información necesitas?"
         },
         orientacion: {
-          label: "No sé qué necesito",
-          title: "Orientación rápida",
-          copy: "Me cuentas qué quieres proteger y te digo qué tipo de seguro puede aplicar.",
-          message: "Hola Jacinto, no sé exactamente qué seguro necesito. ¿Me ayudas a orientarme?"
+          label: "Necesito orientación",
+          title: "Orientación inicial",
+          copy: "Revisamos qué deseas proteger y cuál tipo de seguro puede aplicar.",
+          message: "Hola Jacinto, necesito orientación para saber qué seguro puede aplicar a mi situación. ¿Me ayudas?"
         },
         accidente: {
           label: "Tuve un accidente",
@@ -2596,10 +2652,10 @@
           message: "Hi Jacinto, I want to review insurance options for a business. What information do you need?"
         },
         orientacion: {
-          label: "I am not sure",
-          title: "Quick guidance",
-          copy: "Tell me what you want to protect and I will suggest what type of insurance may apply.",
-          message: "Hi Jacinto, I am not sure what insurance I need. Can you help guide me?"
+          label: "I need guidance",
+          title: "Initial guidance",
+          copy: "We review what you would like to protect and which type of insurance may apply.",
+          message: "Hi Jacinto, I need guidance to understand which insurance may apply to my situation. Can you help?"
         },
         accidente: {
           label: "I had an accident",
@@ -2766,16 +2822,12 @@
       render("auto");
     }
 
-    function setSelectOptions(select, options) {
-      if (!select) return;
-      const selectedIndex = Math.max(select.selectedIndex, 0);
-      select.innerHTML = options.map((option) => `<option>${option}</option>`).join("");
-      select.selectedIndex = Math.min(selectedIndex, options.length - 1);
-    }
-
     function renderSituation(key = currentSituation) {
       currentSituation = key;
       const item = SITUATIONS[currentLang][key] || SITUATIONS[currentLang].vehiculo;
+      const result = qs(".situation-result");
+      result?.classList.add("is-changing");
+      window.setTimeout(() => result?.classList.remove("is-changing"), 180);
       qs("#situationResultTitle").textContent = item.title;
       qs("#situationResultCopy").textContent = item.copy;
       qs("#situationWhatsapp").href = whatsappUrl(item.message);
@@ -2801,15 +2853,6 @@
       qs("#heroAppointment").textContent = text.heroAppointment;
       qs("#heroTrustLine").textContent = text.heroTrustLine;
       qs("#languageLabel").textContent = text.languageLabel;
-      qs("#builderTitle").textContent = text.builderTitle;
-      qs("#builderCopy").textContent = text.builderCopy;
-      qs("#quickMessage").textContent = text.quickButton;
-      qs("#quickNeedLabel").textContent = text.quickLabels[0];
-      qs("#quickWhenLabel").textContent = text.quickLabels[1];
-      qs("#quickHowLabel").textContent = text.quickLabels[2];
-      setSelectOptions(qs("#quickNeed"), text.quickNeedOptions);
-      setSelectOptions(qs("#quickWhen"), text.quickWhenOptions);
-      setSelectOptions(qs("#quickHow"), text.quickHowOptions);
       qsa(".micro-proof > div").forEach((item, index) => {
         item.querySelector("strong").textContent = text.proofTitles[index];
         item.querySelector("span").textContent = text.proofCopies[index];
@@ -2879,7 +2922,6 @@
       qs("#langEs").classList.toggle("is-active", currentLang === "es");
       qs("#langEn").classList.toggle("is-active", currentLang === "en");
       hydrateAgentData();
-      setupQuickBuilder();
       renderSituation(currentSituation);
       const item = INSURANCE_DETAILS[currentLang][currentInsurance] || INSURANCE_DETAILS[currentLang].auto;
       qs("#insuranceKicker").textContent = item.kicker;
@@ -2901,24 +2943,6 @@
       });
     }
 
-    function setupQuickBuilder() {
-      const need = qs("#quickNeed");
-      const when = qs("#quickWhen");
-      const how = qs("#quickHow");
-      const link = qs("#quickMessage");
-      if (!need || !when || !how || !link) return;
-      const update = () => {
-        const message = currentLang === "en"
-          ? `Hi Jacinto, I want help with ${need.value}. Timing: ${when.value}. I prefer: ${how.value}.`
-          : `Hola Jacinto, quiero ayuda con ${need.value}. Tiempo: ${when.value}. Prefiero: ${how.value}.`;
-        link.href = whatsappUrl(message);
-      };
-      [need, when, how].forEach((el) => {
-        el.onchange = update;
-      });
-      update();
-    }
-
     hydrateAgentData();
     setupScrollEffects();
     setupQuoteForm();
@@ -2926,7 +2950,6 @@
     setupInsuranceExplorer();
     setupSituations();
     setupPreferences();
-    setupQuickBuilder();
   </script>
 </body>
 </html>
