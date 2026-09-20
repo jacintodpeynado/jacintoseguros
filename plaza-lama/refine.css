@@ -1,0 +1,23 @@
+/* mobile-app refinement */
+#guideOverlay .sheet,#detailOverlay .sheet{background:#fff}
+.guide-result-list{display:grid;gap:10px;margin-top:8px}
+.guide-result-item{display:grid;grid-template-columns:78px 1fr auto;gap:11px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:18px;background:#fff}
+.guide-result-thumb{width:78px;height:78px;border-radius:15px;background:#f5f7f9;display:grid;place-items:center;overflow:hidden}
+.guide-result-thumb img{width:100%;height:100%;object-fit:contain;padding:6px}
+.guide-result-thumb .fallback svg{max-height:65px}
+.guide-result-copy{min-width:0}.guide-result-copy .brand{font-size:9px}.guide-result-copy b{display:block;font-size:13px;line-height:1.25;margin-top:3px}.guide-result-copy small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.guide-result-side{text-align:right}.guide-result-side strong{display:block;font-size:14px;white-space:nowrap}.guide-result-side button{margin-top:7px;height:31px;border:0;border-radius:10px;background:#111216;color:#fff;padding:0 10px;font-size:11px;font-weight:850}
+.guide-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;padding:14px;border-radius:17px;background:#f6f8fa}
+.guide-summary span{font-size:12px;color:var(--muted)}.guide-summary strong{font-size:17px}
+.guide-footer-sticky{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 18%);padding-top:18px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
+@media(max-width:759px){
+#guideOverlay,#detailOverlay{background:#fff}
+#guideOverlay .sheet,#detailOverlay .sheet{inset:0;left:0;right:0;top:0;bottom:0;height:100%;max-height:none;border-radius:0;padding:calc(10px + env(safe-area-inset-top)) 15px calc(18px + env(safe-area-inset-bottom));animation:fadeUp .18s var(--ease)}
+#guideOverlay .grab,#detailOverlay .grab{display:none}
+#guideOverlay .sheethead,#detailOverlay .sheethead{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);padding:3px 0 10px}
+#detailOverlay .detailphoto{height:270px;border-radius:22px;margin-top:6px}
+#detailOverlay .buyrow{padding-bottom:8px}
+#guideOverlay .guidefooter{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 22%);padding-top:18px;padding-bottom:8px}
+.guide-result-item{grid-template-columns:72px minmax(0,1fr) auto}
+body:has(#guideOverlay.show) .bottomnav,body:has(#detailOverlay.show) .bottomnav{transform:translateY(120%);opacity:0;pointer-events:none}
+}
