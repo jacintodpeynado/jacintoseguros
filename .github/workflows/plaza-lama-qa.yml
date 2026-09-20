@@ -138,13 +138,35 @@ jobs:
           ok(len(items)>=5,'plan drawer has multiple selected products')
           favtab=d.find_elements(By.CSS_SELECTOR,'#planDrawer [data-open-favs]')
           ok(bool(favtab),'favorites tab exists in planner')
+          if favtab:
+              d.execute_script("arguments[0].click();",favtab[0]); wait()
+              favdrawer=d.find_elements(By.CSS_SELECTOR,'#favDrawer.show')
+              ok(bool(favdrawer),'favorites drawer opens from planner')
+              favcards=d.find_elements(By.CSS_SELECTOR,'#favDrawer .fav-card')
+              ok(len(favcards)>=1,'favorited product appears in favorites drawer')
+              favclose=d.find_elements(By.ID,'favClose')
+              if favclose: d.execute_script("arguments[0].click();",favclose[0]); wait()
+
           swipe=d.find_elements(By.CSS_SELECTOR,'#planDrawer .swipe-delete')
           ok(bool(swipe),'swipe-delete affordance exists')
           if swipe:
-              before=len(items)
+              before=len(d.find_elements(By.CSS_SELECTOR,'#planDrawer .plan-item'))
               d.execute_script("arguments[0].click();",swipe[0]); wait()
               undo=d.find_elements(By.ID,'undoSnack')
               ok(bool(undo),'delete shows undo snackbar')
+              if undo:
+                  undo_btn=d.find_elements(By.CSS_SELECTOR,'#undoSnack button')
+                  if undo_btn:
+                      d.execute_script("arguments[0].click();",undo_btn[0]); wait()
+                      restored=len(d.find_elements(By.CSS_SELECTOR,'#planDrawer .plan-item'))
+                      ok(restored>=before,'undo restores deleted plan product')
+
+          # quantity editing while the mobile plan drawer stays usable
+          plus=d.find_elements(By.CSS_SELECTOR,'#planDrawer [data-pro-plus]')
+          ok(bool(plus),'plan drawer has quantity controls')
+          if plus:
+              d.execute_script("arguments[0].click();",plus[0]); wait()
+              ok(bool(d.find_elements(By.CSS_SELECTOR,'#planDrawer.show')),'plan drawer remains open after quantity edit')
 
           # close plan drawer if present
           close=d.find_elements(By.ID,'closePlanDrawer')
@@ -165,6 +187,26 @@ jobs:
                   ok(bool(d.find_elements(By.CSS_SELECTOR,'.alt-live a')),'alternatives links to full Plaza Lama catalog')
                   close_alt=d.find_elements(By.ID,'closeAlt')
                   if close_alt:d.execute_script("arguments[0].click();",close_alt[0]);wait()
+
+              close_detail=d.find_elements(By.CSS_SELECTOR,'#detailSheet [data-close="detailOverlay"]')
+              if close_detail: d.execute_script("arguments[0].click();",close_detail[0]); wait()
+
+          # move the built plan into the real cart and inspect cart interactions
+          addplan=d.find_elements(By.ID,'addPlan2')
+          ok(bool(addplan),'pass-plan-to-cart action exists')
+          if addplan:
+              d.execute_script("arguments[0].click();",addplan[0]); wait()
+              ok(bool(d.find_elements(By.CSS_SELECTOR,'#cartOverlay.show')),'cart opens after passing plan')
+              ok(len(d.find_elements(By.CSS_SELECTOR,'#cartSheet .cartitem'))>=3,'cart contains the plan products')
+              cart_options=d.find_elements(By.CSS_SELECTOR,'#cartSheet .cart-options')
+              ok(bool(cart_options),'cart item offers alternative products')
+              cart_swipe=d.find_elements(By.CSS_SELECTOR,'#cartSheet .cart-swipe-delete')
+              ok(bool(cart_swipe),'cart has swipe-delete affordance')
+              if cart_options:
+                  d.execute_script("arguments[0].click();",cart_options[0]); wait()
+                  ok(bool(d.find_elements(By.CSS_SELECTOR,'.alt-modal.show')),'cart alternatives view opens')
+                  ca=d.find_elements(By.ID,'closeAlt')
+                  if ca: d.execute_script("arguments[0].click();",ca[0]); wait()
 
           logs=d.get_log('browser')
           severe=[x for x in logs if x.get('level')=='SEVERE' and 'Failed to load resource' not in x.get('message','')]
