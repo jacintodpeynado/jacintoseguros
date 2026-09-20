@@ -14,8 +14,8 @@
     if(wasDrawer)reopenPlanDrawer();
   }
   function undoSnack(id,qty,wasDrawer){
-    var old=document.getElementById('fixUndo');if(old)old.remove();
-    var s=document.createElement('div');s.id='fixUndo';s.className='undo-snack show';s.innerHTML='<span>Producto eliminado</span><button>Deshacer</button>';document.body.appendChild(s);
+    var old=document.getElementById('undoSnack');if(old)old.remove();
+    var s=document.createElement('div');s.id='undoSnack';s.className='undo-snack show';s.innerHTML='<span>Producto eliminado</span><button>Deshacer</button>';document.body.appendChild(s);
     s.querySelector('button').onclick=function(){mutatePlan(id,qty,{drawer:wasDrawer});s.remove()};
     setTimeout(function(){if(s.isConnected){s.classList.remove('show');setTimeout(function(){s.remove()},220)}},4200);
   }
