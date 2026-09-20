@@ -161,6 +161,16 @@
       tabs.innerHTML='<button class="plan-tab active">Mi plan</button><button class="plan-tab" data-open-favs>Favoritos <span class="fav-count" data-fav-tab-count>'+favCount()+'</span></button>';
       railHead.appendChild(tabs);
     }
+
+    var drawerPanel=document.querySelector('#planDrawer .plan-drawer-panel');
+    var drawerHead=document.querySelector('#planDrawer .plan-drawer-head');
+    if(drawerPanel&&drawerHead&&!drawerPanel.querySelector('.drawer-plan-tabs')){
+      var dt=document.createElement('div');
+      dt.className='plan-tabs drawer-plan-tabs';
+      dt.innerHTML='<button class="plan-tab active">Mi plan</button><button class="plan-tab" data-open-favs>Favoritos <span class="fav-count" data-fav-tab-count>'+favCount()+'</span></button>';
+      drawerHead.insertAdjacentElement('afterend',dt);
+    }
+
     var pill=document.querySelector('.mobile-plan-pill');
     if(pill&&!document.getElementById('mobileFavButton')){
       var b=document.createElement('button');b.id='mobileFavButton';b.className='plan-tab';b.style.margin='0 0 10px 0';b.innerHTML='♡ Mis favoritos <span class="fav-count" data-fav-tab-count>'+favCount()+'</span>';
