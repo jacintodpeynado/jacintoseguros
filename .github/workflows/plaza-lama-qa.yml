@@ -1,5 +1,9 @@
 name: Plaza Lama QA
 
+concurrency:
+  group: plaza-lama-qa
+  cancel-in-progress: true
+
 on:
   push:
     paths:
