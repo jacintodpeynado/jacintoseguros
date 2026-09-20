@@ -61,7 +61,8 @@
     });
   }
   function enhanceFavoritesCounts(){
-    document.querySelectorAll('[data-fav-tab-count]').forEach(function(x){x.textContent=favCount()});
+    var val=String(favCount());
+    document.querySelectorAll('[data-fav-tab-count]').forEach(function(x){if(x.textContent!==val)x.textContent=val});
   }
 
   function showUndo(id,qty){
@@ -221,8 +222,14 @@
     enhanceHearts();enhancePlanItems();budgetStats();completionChips();addFavoriteEntryPoints();alternativeBanner();catalogSearch();enhanceFavoritesCounts();persistPlan();
   };
 
-  var obs=new MutationObserver(function(){
-    if(document.getElementById('planDrawer')){enhancePlanItems();addFavoriteEntryPoints();enhanceFavoritesCounts();}
+  var obs=new MutationObserver(function(mutations){
+    var needs=false;
+    mutations.forEach(function(m){
+      Array.from(m.addedNodes||[]).forEach(function(n){
+        if(n.nodeType===1 && (n.id==='planDrawer' || (n.matches&&n.matches('.plan-item')) || (n.querySelector&&n.querySelector('.plan-item')))) needs=true;
+      });
+    });
+    if(needs){enhancePlanItems();addFavoriteEntryPoints();enhanceFavoritesCounts();}
   });
   obs.observe(document.body,{childList:true,subtree:true});
 
